@@ -9,7 +9,7 @@ export default {
 
     // Change to the name of your repository
     // According to https://vitejs.dev/guide/static-deploy.html 
-    base: '/polimi-webgis-class-2024/', 
+    base: '/gis2024-group4/', 
 
     publicDir: "public",
 
