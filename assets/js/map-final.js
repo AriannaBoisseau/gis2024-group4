@@ -62,14 +62,14 @@ var colombiaRivers = new Image({
 //     })
 // });
 
-//No Landslide zone layer imported from polimi geoserver
-var noLZ = new Image({
-    title: "NLZ",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_04:NLZ' }
-    })
-});
+//layers imported from polimi geoserver
+// var noLZ = new Image({ 
+//     title: "NLZ",
+//     source: new ImageWMS({
+//         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+//         params: { 'LAYERS': 'gisgeoserver_04:NLZ' }
+//     })
+// });
 
 var aspect = new Image({
     title: "Aspect",
@@ -91,7 +91,7 @@ var dusaf = new Image({
     title: "Dusaf",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_04:dtm' }
+        params: { 'LAYERS': 'gisgeoserver_04:dusaf' }
     })
 });
 
@@ -111,6 +111,14 @@ var merged = new Image({
     })
 });
 
+var outline = new Image({
+    title: "Case Study",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:GROUP_GROUP 4'}
+    })
+});
+
 //Create the layer groups and add the layers to them
 let basemapLayers = new Group({
     title: "Base Maps",
@@ -118,7 +126,7 @@ let basemapLayers = new Group({
 });
 let step1 = new Group({
     title: "Step 1",
-    layers: [noLZ, aspect, dtm, dusaf, faults, merged]
+    layers: [aspect, dtm, dusaf, faults, merged, outline]
 })
 // let step2 = new Group({
 //     title: "Step 2",
@@ -126,10 +134,6 @@ let step1 = new Group({
 // })
 // let step3 = new Group({
 //     title: "Step 3",
-//     layers: [noLZ, test]
-// })
-// let step4 = new Group({
-//     title: "Step 4",
 //     layers: [noLZ, test]
 // })
 
@@ -213,103 +217,103 @@ basemapLayers.getLayers().extend([bingRoads, bingAerial]);
 // basemapLayers.getLayers().extend([stadiaWatercolor, stadiaToner]);
 
 //Add the WFS layer
-let vectorSource = new VectorSource({});
-const vectorLayer = new Vector({
-    title: "Colombia water areas",
-    source: vectorSource,
-    style: new Style({
-        stroke: new Stroke({
-            color: 'rgb(255, 102, 0)',
-            width: 4
-        })
-    }),
-    zIndex: 10
-});
-overlayLayers.getLayers().extend([vectorLayer]);
+// let vectorSource = new VectorSource({});
+// const vectorLayer = new Vector({
+//     title: "Colombia water areas",
+//     source: vectorSource,
+//     style: new Style({
+//         stroke: new Stroke({
+//             color: 'rgb(255, 102, 0)',
+//             width: 4
+//         })
+//     }),
+//     zIndex: 10
+// });
+// overlayLayers.getLayers().extend([vectorLayer]);
 
 
-// This allows to use the function in a callback!
-function loadFeatures(response) {
-    vectorSource.addFeatures(new GeoJSON().readFeatures(response))
-}
-// This is not a good practice, but works for the jsonp.
-window.loadFeatures = loadFeatures;
+// // This allows to use the function in a callback!
+// function loadFeatures(response) {
+//     vectorSource.addFeatures(new GeoJSON().readFeatures(response))
+// }
+// // This is not a good practice, but works for the jsonp.
+// window.loadFeatures = loadFeatures;
 
-var base_url = "https://www.gis-geoserver.polimi.it/geoserver/gis/ows?";
-var wfs_url = base_url;
-wfs_url += "service=WFS&"
-wfs_url += "version=2.0.0&"
-wfs_url += "request=GetFeature&"
-wfs_url += "typeName=gis%3ACOL_water_areas&"
-wfs_url += "outputFormat=text%2Fjavascript&"
-wfs_url += "srsname=EPSG:3857&"
-wfs_url += "format_options=callback:loadFeatures"
+// var base_url = "https://www.gis-geoserver.polimi.it/geoserver/gis/ows?";
+// var wfs_url = base_url;
+// wfs_url += "service=WFS&"
+// wfs_url += "version=2.0.0&"
+// wfs_url += "request=GetFeature&"
+// wfs_url += "typeName=gis%3ACOL_water_areas&"
+// wfs_url += "outputFormat=text%2Fjavascript&"
+// wfs_url += "srsname=EPSG:3857&"
+// wfs_url += "format_options=callback:loadFeatures"
 
-// This will request the WFS layer once the map is rendered.
-// Uses the map event 'postrender': https://openlayers.org/en/v8.2.0/apidoc/module-ol_MapEvent-MapEvent.html#event:postrender
-map.once('postrender', (event) => {
-    // Load the WFS layer
-    $.ajax({ url: wfs_url, dataType: 'jsonp' });
-})
+// // This will request the WFS layer once the map is rendered.
+// // Uses the map event 'postrender': https://openlayers.org/en/v8.2.0/apidoc/module-ol_MapEvent-MapEvent.html#event:postrender
+// map.once('postrender', (event) => {
+//     // Load the WFS layer
+//     $.ajax({ url: wfs_url, dataType: 'jsonp' });
+// })
 
-//Add the code for the Pop-up
-var container = document.getElementById('popup');
-var content = document.getElementById('popup-content');
-var closer = document.getElementById('popup-closer');
+// //Add the code for the Pop-up
+// var container = document.getElementById('popup');
+// var content = document.getElementById('popup-content');
+// var closer = document.getElementById('popup-closer');
 
-var popup = new Overlay({
-    element: container
-});
-map.addOverlay(popup);
+// var popup = new Overlay({
+//     element: container
+// });
+// map.addOverlay(popup);
 
-// This ensures that JQuery ($) is already available in the page.
-$(document).ready(function () {
-    map.on('singleclick', function (event) {
-        //This iterates over all the features that are located on the pixel of the click (can be many)
-        var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
-            return feature;
-        });
+// // This ensures that JQuery ($) is already available in the page.
+// $(document).ready(function () {
+//     map.on('singleclick', function (event) {
+//         //This iterates over all the features that are located on the pixel of the click (can be many)
+//         var feature = map.forEachFeatureAtPixel(event.pixel, function (feature, layer) {
+//             return feature;
+//         });
 
-        //If there is a feature, open the popup by setting a position to it and put the data from the feature
-        if (feature != null) {
-            var pixel = event.pixel;
-            var coord = map.getCoordinateFromPixel(pixel);
-            popup.setPosition(coord);
-            content.innerHTML =
-                '<h5>Colombia Water Areas</h5><br><b>Name: </b>' +
-                feature.get('NAME') +
-                '</br><b>Description: </b>' +
-                feature.get('HYC_DESCRI');
-        } else {
-            //Only if the colombiaRoads layer is visible, do the GetFeatureInfo request
-            if (colombiaRoads.getVisible()) {
-                var viewResolution = (map.getView().getResolution());
-                var url = colombiaRoads.getSource().getFeatureInfoUrl(event.coordinate, viewResolution, 'EPSG:3857', { 'INFO_FORMAT': 'text/html' });
+//         //If there is a feature, open the popup by setting a position to it and put the data from the feature
+//         if (feature != null) {
+//             var pixel = event.pixel;
+//             var coord = map.getCoordinateFromPixel(pixel);
+//             popup.setPosition(coord);
+//             content.innerHTML =
+//                 '<h5>Colombia Water Areas</h5><br><b>Name: </b>' +
+//                 feature.get('NAME') +
+//                 '</br><b>Description: </b>' +
+//                 feature.get('HYC_DESCRI');
+//         } else {
+//             //Only if the colombiaRoads layer is visible, do the GetFeatureInfo request
+//             if (colombiaRoads.getVisible()) {
+//                 var viewResolution = (map.getView().getResolution());
+//                 var url = colombiaRoads.getSource().getFeatureInfoUrl(event.coordinate, viewResolution, 'EPSG:3857', { 'INFO_FORMAT': 'text/html' });
 
-                if (url) {
-                    var pixel = event.pixel;
-                    var coord = map.getCoordinateFromPixel(pixel);
-                    popup.setPosition(coord);
-                    //We do again the AJAX request to get the data from the GetFeatureInfo request
-                    $.ajax({ url: url })
-                        .done((data) => {
-                            //Put the data of the GetFeatureInfo response inside the pop-up
-                            //The data that arrives is in HTML
-                            content.innerHTML = data;
-                        });
-                }
-            }
-        }
-    });
-});
+//                 if (url) {
+//                     var pixel = event.pixel;
+//                     var coord = map.getCoordinateFromPixel(pixel);
+//                     popup.setPosition(coord);
+//                     //We do again the AJAX request to get the data from the GetFeatureInfo request
+//                     $.ajax({ url: url })
+//                         .done((data) => {
+//                             //Put the data of the GetFeatureInfo response inside the pop-up
+//                             //The data that arrives is in HTML
+//                             content.innerHTML = data;
+//                         });
+//                 }
+//             }
+//         }
+//     });
+// });
 
 
-// The click event handler for closing the popup.
-closer.onclick = function () {
-    popup.setPosition(undefined);
-    closer.blur();
-    return false;
-};
+// // The click event handler for closing the popup.
+// closer.onclick = function () {
+//     popup.setPosition(undefined);
+//     closer.blur();
+//     return false;
+// };
 
 
 // Adding map event for pointermove
