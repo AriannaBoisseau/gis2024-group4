@@ -17,59 +17,8 @@ let osm = new Tile({
     visible: true,
     source: new OSM()
 });
-/*
-let colombiaBoundary = new Image({
-    title: "Colombia Boundary",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_adm0', 'STYLES': 'restricted' }
-    })
-});
-var colombiaDepartments = new Image({
-    title: "Colombia Departments",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_adm1' }
-    }),
-    opacity: 0.5
-});
 
-var colombiaRoads = new Image({
-    title: "Colombia Roads",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_roads' }
-    }),
-    visible: false
-});
-var colombiaRivers = new Image({
-    title: "Colombia Rivers",
-    source: new ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gis:COL_rivers' }
-    }),
-    minResolution: 1000,
-    maxResolution: 5000
-});
-*/
-
-//No Landslide zone layer imported from localhost
-// var noLZ = new Image({
-//     title: "NLZ Separated",
-//     source: new ImageWMS({
-//         url: 'http://localhost:8080/geoserver/wms',
-//         params: { 'LAYERS': 'lab:NLZ_separated' }
-//     })
-// });
-
-//layers imported from polimi geoserver
-// var noLZ = new Image({ 
-//     title: "NLZ",
-//     source: new ImageWMS({
-//         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-//         params: { 'LAYERS': 'gisgeoserver_04:NLZ' }
-//     })
-// });
+//step 1
 
 var aspect = new Image({
     title: "Aspect",
@@ -103,19 +52,129 @@ var faults = new Image({
     })
 });
 
-var merged = new Image({
-    title: "NLZ & LS Merged",
+var nvdi = new Image({
+    title: "NVDI",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
-        params: { 'LAYERS': 'gisgeoserver_04:Merged_NLZ_LSinv' }
+        params: { 'LAYERS': 'gisgeoserver_04:nvdi'}
     })
 });
+
+var plan = new Image({
+    title: "Plan",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:plan'}
+    })
+});
+
+var profile = new Image({
+    title: "Profile",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:profile'}
+    })
+});
+
+var rivers = new Image({
+    title: "Rivers",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:rivers'}
+    })
+});
+
+var roads = new Image({
+    title: "Roads",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:roads'}
+    })
+});
+
+var slope = new Image({
+    title: "Slope",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:slope'}
+    })
+});
+
+var NLZ = new Image({
+    title: "No Landslides Zone",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:NLZ'}
+    })
+});
+
+var trainPoints = new Image({
+    title: "Training Points Sampled",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:trainingPointsSampled'}
+    })
+});
+
+var testPoints = new Image({
+    title: "Testing Points Sampled",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:testingPointsSampled'}
+    })
+});
+
+//step2
+
+var confidence = new Image({
+    title: "Confidence",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:confidence'}
+    })
+});
+
+var susMap = new Image({
+    title: "Landslide Susceptibility Map",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:LandslideSusceptibilityMap'}
+    })
+});
+
+//step 3
+
+var population = new Image({
+    title: "Population",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:population'}
+    })
+});
+
+var susMap_rec = new Image({
+    title: "Landslide Susceptibility Map Reclassified",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:LandslideSusceptibilityMap_reclass_resamp'}
+    })
+});
+
+//extra
 
 var outline = new Image({
     title: "Case Study",
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
         params: { 'LAYERS': 'gisgeoserver_04:GROUP_GROUP 4'}
+    })
+});
+
+var merged = new Image({
+    title: "NLZ & LS Merged",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:Merged_NLZ_LSinv' }
     })
 });
 
@@ -126,21 +185,52 @@ let basemapLayers = new Group({
 });
 let step1 = new Group({
     title: "Step 1",
-    layers: [aspect, dtm, dusaf, faults, merged, outline]
+    layers: [aspect, dtm, dusaf, faults, nvdi, plan, profile, rivers, roads, slope, NLZ, trainPoints, testPoints]
 })
-// let step2 = new Group({
-//     title: "Step 2",
-//     layers: [noLZ, test]
-// })
-// let step3 = new Group({
-//     title: "Step 3",
-//     layers: [noLZ, test]
-// })
+let step2 = new Group({
+    title: "Step 2",
+    layers: [confidence, susMap]
+})
+let step3 = new Group({
+    title: "Step 3",
+    layers: [population, susMap_rec]
+})
+let extra = new Group({
+    title: "Extra Layers",
+    layers: [outline, merged]
+})
+
+//step1
+aspect.setVisible(false);
+dtm.setVisible(false);
+dusaf.setVisible(false);
+faults.setVisible(false);
+nvdi.setVisible(false);
+plan.setVisible(false);
+profile.setVisible(false);
+rivers.setVisible(false);
+roads.setVisible(false);
+slope.setVisible(false);
+NLZ.setVisible(false);
+trainPoints.setVisible(false);
+testPoints.setVisible(false);
+
+//step2
+confidence.setVisible(false);
+
+//step3
+population.setVisible(false);
+
+//extra
+merged.setVisible(false);
+outline.setVisible(false);
+
+
 
 // Map Initialization
 let map = new Map({
     target: document.getElementById('map'),
-    layers: [basemapLayers, step1],
+    layers: [basemapLayers, extra, step3, step2, step1],
     view: new View({
         center: fromLonLat([9.92, 45.74]), //center of our group areas
         zoom: 12
