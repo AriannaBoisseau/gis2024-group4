@@ -34,135 +34,243 @@
 					<div id="main">
 
 						<!-- Introduction -->
-							<section id="pre" class="main">
+							<section id="pre" class="main special">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>The Project</h2>
+											<h2>Preprocessing</h2>
 										</header>
-										<p>For this project we had to compute a landslide <b>susceptibility map</b> and use it to evaluate the <b>exposure</b> of the population to landslides.
-											Our group has been assigned an area east of Bergamo in the <i>Valle Cavallina</i>.
-											This region includes Lake Endine and several neighboring towns. <br>
-											<b>Landslide susceptibility maps</b> illustrate the likelihood of landslides occurring in specific areas, helping to highlight regions with higher spatial probability levels for potential landslides. <br>
-											<b>Exposure assessment</b> involves identifying and quantifying the number of people or other elements located within areas at risk of hazards.
-											This process is crucial for understanding the potential impact of natural disasters.
-										</p>
-										<ul class="actions">
-											<!-- <li><a href="pages/webgis.html" class="button">WEB GIS</a></li> -->
-											<li><a href="pages/webgis.html" class="button icon solid fa-globe">WEB GIS</a></li>
-										</ul>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>DTM</b>TODO scrivere tutti gli step per arrivare ai deliverables dello step 1</p>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>NDVI</b></p>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>DUSAF</b></p>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Faults</b></p>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Rivers</b></p>
+											<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Roads</b></p>
+											<p><span class="image right"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Aspect</b></p>
+											<p><span class="image right"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Plan</b></p>
+											<p><span class="image right"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Profile</b></p>
+											<p><span class="image right"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>Slope</b></p>
+											<p><span class="image"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+												<b>NLZ</b></p>
+
+
 									</div>
-									<!-- <span class="image"><img src="images/640px-Lago_di_Endine_dal_Monte_Sparavera.jpeg"/></span> -->
-									<img src="images/group4_area.png" style="display: block;max-width: 55%;"/>
 								</div>
 							</section>
 
 						<!-- Dataset Section -->
 							<section id="sus" class="main special">
 								<header class="major">
-									<h2>Dataset</h2>
+									<h2>Susceptibility Map</h2>
 								</header>
-								<ul class="alt" style="text-align: left;">
-									<li><b>Landslide inventory</b> <br> from IFFI catalogue with a scale of 1:10000</li>
-									<li><b>Digital Terrain Model</b> <br> from GeoPortale Lombardia with a spatial resolution of 5 m/px</li>
-									<li><b>Land use and land cover</b> <br> Destinazione d'Uso dei Suoli Agricoli e Forestali from GeoPortale Lombardia</li>
-									<li><b>Road and rivers network</b> <br> from OpenStreetMap</li>
-									<li><b>Distance to geological faults</b> <br> from GeoPortale Lombardia</li>
-									<li><b>Normalized Difference Vegetation Index</b> <br> derived from images of ESA Copernicus Sentinel-2</li>
-								</ul>
+								<p>TODO We define a new field Hazard in the attribute tables of both Landslide Inventory and NLZ assigning 0 to the NLZ and 1 to the LS. We decide the training-testing ratio to use for our machine learning model: 70% training - 30% testing. Then, we create a new text attribute Train_Test and we assigne the value Training or Testing according to the selected polygons. We did it usign the tool Random Selection to assign to random polygons the value of Training or Testing. Furthermore we use Merge with LS and NLZ layrers. In a first place we define 1000 points within the area: 700 for train and 300 for test divided in the Hazard with value 1 and 0, so we obtaine</p>
+								
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Train_Test</th>
+												<th>Hazard</th>
+												<th>Number of points</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Training</td>
+												<td>1</td>
+												<td>350</td>
+											</tr>
+											<tr>
+												<td>Training</td>
+												<td>2</td>
+												<td>350</td>
+											</tr>
+											<tr>
+												<td>Testing</td>
+												<td>1</td>
+												<td>150</td>
+											</tr>
+											<tr>
+												<td>Testing</td>
+												<td>2</td>
+												<td>150</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="2"></td>
+												<td>1000</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+								<p><span class="image"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+									<b>NLZ</b> TODO: mettere immagine con punti, colorati e divisi nelle 4 classi. con legenda</p>
+								<h3>Susceptibility Map</h3>
+								<p><span class="image"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+									TODO: mettere immagini di classification e confidence</p>
+
+								<p>To generate the susceptibility map we used the classification tool fram the Dzetsaka Plugin. We then converted the classification confidence to class probability using the raster calculator, using this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code><br>
+									Sequentially, to validate the output obtained previously, we used the Accuracy Assessment and Sampling, from the processing scripts tools, on the Susceptibility maps and testing point obtained from the previous computation.
+									</p>
+
+								<p>TODO: mettere immagine della susceptibility map</p>
+
+								
+
+
 							</section>
 
 						<!-- Group Section -->
 							<section id="val" class="main special">
 								<header class="major">
-									<h2>Group components</h2>
+									<h2>Validation</h2>
 								</header>
-								<ul class="features">
-									<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3>Vanessa Goletti</h3>
-										<!-- <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p> -->
-									</li>
-									<li>
-										<!-- <span class="icon major style3 fa-copy"></span> -->
-										<img src="images/MV.jpg" style="display: block;max-width: 75%;border-radius: 50%;margin: 0px 0px 24px 34px;">
-										<h3>Michele Villani</h3>
-										<!-- <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p> -->
-									</li>
-									<li>
-										<!-- <span class="icon major style5 fa-gem"></span> -->
-										<img src="images/AB.jpg" style="display: block;max-width: 75%;border-radius: 50%;margin: 0px 0px 24px 34px;">
-										<h3>Arianna Boisseau</h3>
-										<!-- <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p> -->
-									</li>
-								</ul>
-								<!-- <footer class="major">
-									<ul class="actions special">
-										<li><a href="pages/generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer> -->
+
+								<h3>Confusion Matrix</h3>
+
+									<div class="table-wrapper">
+										<table class="alt">
+											<tbody>
+												<tr>
+													<td><b>Class/Reference</b></td>
+													<td>No Landslides Zone</td>
+													<td>Landslides Zone</td>
+													<td>User's Accuracy</td>
+													<td>Producer's Accuracy</td>
+												</tr>
+												<tr>
+													<td>No Landslides Zone</td>
+													<td>121</td>
+													<td>39</td>
+													<td>0.76</td>
+													<td>0.81</td>
+												</tr>
+												<tr>
+													<td>Landslides Zone</td>
+													<td>29</td>
+													<td>111</td>
+													<td>0.79</td>
+													<td>0.74</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<p>TODO: mettere in grassetto e aggiungere formule</p>
+									<p>
+										<ul>
+											<li>Producer's accuracy (PA) for a class indicates the likelihood that the class present on the ground is also captured by the classification in the thematic raster.</li>
+											<li>User's accuracy (UA) for a class reveals how frequently a user of the classified map will encounter the class accurately representing the ground reality.</li>
+											<li>Overall accuracy (OA) represents the overall percentage of pixels that are correctly classified relative to the total number of pixels.</li>
+										</ul>
+										The value of Overall accuracy obtained, being higher then 0.7, highlights a sufficiently high level of reliability in the results of the susceptibility map.
+									</p>
 							</section>
 
 						<!-- Tools Section -->
 							<section id="exp" class="main special">
 								<header class="major">
-									<h2>Tools used</h2>
+									<h2>Exposure Assessment</h2>
 								</header>
-									<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
-										<b>QGIS</b> is a geographic information system (GIS) software that is free and open-source.
-										QGIS integrates with other open-source GIS packages, including PostGIS, GRASS GIS, SAGA GIS, and MapServer.
-									<p><span class="image right"><img src="images/dzetsaka.png" style="display: block;max-width: 50%;"/></span>
-										<b>Plugins</b> are software components that add a specific feature to an existing computer program.
-										For QGIS they are usually written in Python or C++.
-										We used <b>Dzetsaka</b> for semi-automatic classification with the Random Forest learnig method.
-									<p><span class="image left"><img src="images/GeoServer.png" style="display: block;max-width: 50%;"/></span>
-										<b>GeoServer</b> is an open-source server written in Java that allows users to share, process and edit geospatial data.
-										GeoServer implements several Open Geospatial Consortium protocols including Web Map Service (WMS) that we used to add layers to our gis.
-									<p><span class="image right"><img src="images/OpenLayers_logo.svg" style="display: block;max-width: 50%;"/></span>
-										<b>OpenLayers</b> is an open-source JavaScript library for displaying map data in web browsers as slippy maps.
-										It provides an API for building rich web-based geographic applications similar to Google Maps and Bing Maps. 
-									<p><span class="image left"><img src="images/vue.png" style="display: block;max-width: 40%;"/></span>
-										<b>Vue.js</b> is an open-source model-view-viewmodel front end JavaScript library for building user interfaces and single-page applications.	
-									<p><span class="image right"><img src="images/VSC.png" style="display: block;max-width: 40%;"/></span>
-										<b>Visual Studio Code</b> is a source-code editor developed by Microsoft for Windows, Linux, macOS and web browsers.
-									<p><span class="image left"><img src="images/GitHub_Logo.svg" style="display: block;max-width: 30%;"/></span>
-										<b>GitHub</b> is a developer platform that allows developers to create, store, manage and share their code.
-										It uses Git software, providing the distributed version control of Git
-								<!-- <footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
+								<p><span class="image right"><img src="../images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+									To conduct the exposure assessment, we acquired and reprojected the population raster dataset to match the coordinate reference system (CRS) of the sub-area vector layer and the susceptibility map obtained in the preceding step.</p>
+								<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
+									<br>
+									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
+									<br>
+									<ul>
+										<li>Low: Values in the range [0, 25) %</li>
+										<li>Moderate: Values in the range [25, 50) %</li>
+										<li>High: Values in the range [50, 75) %</li>
+										<li>Very high: Values in the range [75, 100) %</li>
 									</ul>
-								</footer> -->
+									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which approximated 81.67 meters.
+									By utilizing Raster layer zonal statistics, we computed the population count and we subsequencially used the Plugin Plotly to visualize the output through a pie chart illustrating the proportion of population within each susceptibility class before defined.
+								</p>
+
+									<div class="box alt">
+										<div class="row gtr-uniform">
+											<div class="col-4"><span class="image fit"><img src="../images/pic01.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="../images/pic02.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="../images/pic03.jpg" alt="" /></span></div>
+										</div>
+									</div>
+
+									<p>The exposure assessment constitutes a crucial aspect in our assessment, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, of buildings, and infrastructure, facilitating the development of effective strategies for risk mitigation.In this exposure assessment in particular we are going to focus on the percentage of people that may be affected by potential landslide By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activties.</p>
 							</section>
 
 						<!-- Results Section -->
 							<section id="results" class="main special">
 								<header class="major">
 									<h2>Results</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
 								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<!-- <li><a href="generic.html" class="button primary">Get Started</a></li> -->
-										<!-- <li><a href="generic.html" class="button">Learn More</a></li> -->
-										<li><a href="pages/generic.html" class="button icon solid fa-book">SHOW RESULTS</a></li>
-									</ul>
-								</footer>
+								<div class="table-wrapper">
+									<table class="alt">
+										<tbody>
+											<tr>
+												<td><b>TODO cambiare</b></td>
+												<td>No Landslides Zone</td>
+												<td>Landslides Zone</td>
+												<td>User's Accuracy</td>
+												<td>Producer's Accuracy</td>
+											</tr>
+											<tr>
+												<td>No Landslides Zone</td>
+												<td>121</td>
+												<td>39</td>
+												<td>0.76</td>
+												<td>0.81</td>
+											</tr>
+											<tr>
+												<td>Landslides Zone</td>
+												<td>29</td>
+												<td>111</td>
+												<td>0.79</td>
+												<td>0.74</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<p><b>TODO testo da affiancare </b> From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population vulnerable to an exceptionally high risk and high risk of landslides. 
+									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% risk while the percentage of population resulting from out analysis at risk or high risk in the lake Endine surrounding area is </p>
+								
+								<span class="image"><img src="../images/pie_plot.png" style="display: block;max-width: 50%;"/></span>
 							</section>
 
 						<!-- Results Section -->
 						<section id="chal" class="main special">
 							<header class="major">
-								<h2>Results</h2>
-								<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-								posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+								<h2>Challenges Faced</h2>
+							</header>
+							<ul class="alt">
+								<li>We had to manually clip the NLZ layer into different sections in order to obtain better distributed points.</li>
+								<li>We had to convert integer into the floating-point data type to successfully merge the NLZ and LS-inventory layers.</li>
+								<li>We used the GDAL tool (Aspect) instead of the SAGA (Slope,aspect,curvature), because otherwise it would indicate a NULL value in flat areas instead of zero, creating gaps within the layer and causing issues for subsequent operations.</li>
+								<li>We launced multiple times the tool to generate random points multiple times in order to produce points consistent with our study area.</li>	
+							</ul>
+
+						</section>
+
+						<!-- Results Section -->
+						<section id="webgis" class="main special">
+							<header class="major">
+								<h2>WebGIS</h2>
+								<p>TODO come si è realizzato il webgis e i layer di base, controlli ecc ecc (fuffa)</p>
 							</header>
 							<footer class="major">
 								<ul class="actions special">
-									<!-- <li><a href="generic.html" class="button primary">Get Started</a></li> -->
-									<!-- <li><a href="generic.html" class="button">Learn More</a></li> -->
-									<li><a href="pages/generic.html" class="button icon solid fa-book">SHOW RESULTS</a></li>
+									<li><a href="webgis.html" class="button icon solid fa-globe">Go to interactive map</a></li>
 								</ul>
 							</footer>
 						</section>
