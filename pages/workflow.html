@@ -144,10 +144,10 @@
 											<tbody>
 												<tr>
 													<td><b>Class/Reference</b></td>
-													<td>No Landslides Zone</td>
-													<td>Landslides Zone</td>
-													<td>User's Accuracy</td>
-													<td>Producer's Accuracy</td>
+													<td><b>No Landslides Zone</b></td>
+													<td><b>Landslides Zone</b></td>
+													<td><b>User's Accuracy</b></td>
+													<td><b>Producer's Accuracy</b></td>
 												</tr>
 												<tr>
 													<td>No Landslides Zone</td>
@@ -166,14 +166,16 @@
 											</tbody>
 										</table>
 									</div>
-									<p>TODO: mettere in grassetto e aggiungere formule</p>
 									<p>
-										<ul>
-											<li>Producer's accuracy (PA) for a class indicates the likelihood that the class present on the ground is also captured by the classification in the thematic raster.</li>
-											<li>User's accuracy (UA) for a class reveals how frequently a user of the classified map will encounter the class accurately representing the ground reality.</li>
-											<li>Overall accuracy (OA) represents the overall percentage of pixels that are correctly classified relative to the total number of pixels.</li>
+										<ul style="text-align: left;">
+											<li><b>Producer's accuracy (PA)</b> for a class indicates the likelihood that the class present on the ground is also captured by the classification in the thematic raster.</li>
+											<code>PA = TP / (TP + FN)</code>
+											<li><b>User's accuracy (UA)</b> for a class reveals how frequently a user of the classified map will encounter the class accurately representing the ground reality.</li>
+											<code>UA = TP / (TP + FP)</code>
+											<li><b>Overall accuracy (OA)</b> represents the overall percentage of pixels that are correctly classified relative to the total number of pixels.</li>
+											<code>OA = (TP + TN) / (TP + TN + FP + FN)</code>
 										</ul>
-										The value of Overall accuracy obtained, being higher then 0.7, highlights a sufficiently high level of reliability in the results of the susceptibility map.
+										The value of <b>Overall Accuracy</b> obtained is <b>0.773</b>, being higher then 0.7, highlights a sufficiently high level of reliability in the results of the susceptibility map.
 									</p>
 							</section>
 
@@ -188,7 +190,7 @@
 									<br>
 									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
 									<br>
-									<ul>
+									<ul style="text-align: left;">
 										<li>Low: Values in the range [0, 25) %</li>
 										<li>Moderate: Values in the range [25, 50) %</li>
 										<li>High: Values in the range [50, 75) %</li>
@@ -218,25 +220,29 @@
 									<table class="alt">
 										<tbody>
 											<tr>
-												<td><b>TODO cambiare</b></td>
-												<td>No Landslides Zone</td>
-												<td>Landslides Zone</td>
-												<td>User's Accuracy</td>
-												<td>Producer's Accuracy</td>
+												<td><b>Zone (hazard)</b></td>
+												<td><b>Sum (people)</b></td>
+												<td><b>Percentage (%)</b></td>
 											</tr>
 											<tr>
-												<td>No Landslides Zone</td>
-												<td>121</td>
-												<td>39</td>
-												<td>0.76</td>
-												<td>0.81</td>
+												<td>1</td>
+												<td>23164.26495</td>
+												<td>86.43833331</td>
 											</tr>
 											<tr>
-												<td>Landslides Zone</td>
-												<td>29</td>
-												<td>111</td>
-												<td>0.79</td>
-												<td>0.74</td>
+												<td>2</td>
+												<td>2048.07564</td>
+												<td>7.642471935</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>568.7268326</td>
+												<td>2.122225748</td>
+											</tr>
+											<tr>
+												<td>4</td>
+												<td>1017.534613</td>
+												<td>3.796969003</td>
 											</tr>
 										</tbody>
 									</table>
