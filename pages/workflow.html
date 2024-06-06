@@ -28,7 +28,7 @@
 							<li><a href="#exp">Exposure Assessment</a></li>
 							<li><a href="#results">Results</a></li>
 							<li><a href="#chal">Challenges Faced</a></li>
-							<li><a href="webgis.html">Web Gis <i class="icon solid fa-globe"></i></a></li>
+							<li><a href="webgis.html">WebGIS <i class="icon solid fa-globe"></i></a></li>
 						</ul>
 					</nav>
 
@@ -355,29 +355,29 @@
 									<table class="alt">
 										<tbody>
 											<tr>
-												<td><b>Zone (hazard)</b></td>
+												<td><b>Zone</b></td>
 												<td><b>Sum (people)</b></td>
-												<td><b>Percentage (%)</b></td>
+												<td><b>Population percentage (%)</b></td>
 											</tr>
 											<tr>
-												<td>1</td>
-												<td>23164.26495</td>
-												<td>86.43833331</td>
+												<td>&lt; 25%</td>
+												<td>23164</td>
+												<td>86.44</td>
 											</tr>
 											<tr>
-												<td>2</td>
-												<td>2048.07564</td>
-												<td>7.642471935</td>
+												<td>25% - 50%</td>
+												<td>2048</td>
+												<td>7.64</td>
 											</tr>
 											<tr>
-												<td>3</td>
-												<td>568.7268326</td>
-												<td>2.122225748</td>
+												<td>50% - 75%</td>
+												<td>568</td>
+												<td>2.12</td>
 											</tr>
 											<tr>
-												<td>4</td>
-												<td>1017.534613</td>
-												<td>3.796969003</td>
+												<td>&gt; 75%</td>
+												<td>1017</td>
+												<td>3.80</td>
 											</tr>
 										</tbody>
 									</table>
@@ -389,8 +389,8 @@
 									<span class="image left">
 										<a href="../images/pie_plot.png"><img src="../images/pie_plot.png" style="display: block;max-width: 100%;"/></a>
 									</span>
-									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population vulnerable to an exceptionally high risk and high risk of landslides. 
-									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is 6 %.
+									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population at high risk and at risk of landslides. 
+									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is around 6%.
 								</p>
 							</section>
 
@@ -399,11 +399,11 @@
 							<header class="major">
 								<h2>Challenges Faced</h2>
 							</header>
+							<p>These are some of the challenges that we encountered and how we overcame them: </p>
 							<ul class="alt">
 								<li>We had to manually clip the NLZ layer into different sections in order to obtain better distributed points.</li>
-								<li>We had to convert integer into floating-point to successfully merge the NLZ and LS-inventory layers.</li>
 								<li>We used the GDAL tool (Aspect) instead of the SAGA (Slope,aspect,curvature), because otherwise it would indicate a NULL value in flat areas instead of zero, creating gaps within the layer and causing issues for subsequent operations.</li>
-								<li>We launced multiple times the tool to generate random points in order to produce points consistent with our study area.</li>	
+								<li>We launched multiple times the tool to generate random points in order to produce points consistent with our study area.</li>	
 							</ul>
 
 						</section>
@@ -413,7 +413,7 @@
 							<header class="major">
 								<h2>WebGIS</h2>
 								<p>In the final phase of our project, we have developed a WebGIS platform that facilitates the visualization of the analyzed maps and of the landslide susceptibility map. This tool is designed to be user-friendly, allowing individuals to easily interact with the map. Thanks to the intuitive interface, users are able to navigate through our collection of layers. They can effortlessly zoom in and out and switch between various layers making it possible to better comprehend the landslide susceptibility assessment.
-									Moreover, our WebGIS platform is thoughtfully equipped with a set of base maps that serve as a backdrop, enhancing the overall user experience. The overall scope of our webGis is to encourage users to explore and understand the data deeply, leading to a greater awareness of the nuances of landslide susceptibility and its potential impact on the environment. Additionally, our WebGIS is designed to be accessible to everyone, ensuring that users can gain valuable insights without the need for specialized technical knowledge.</p>
+									Moreover, our WebGIS platform is thoughtfully equipped with a set of base maps that serve as a backdrop, enhancing the overall user experience. The purpose of our WebGIS is to encourage users to explore and understand the data deeply, leading to a greater awareness of the nuances of landslide susceptibility and its potential impact on the environment. Additionally, our WebGIS is designed to be accessible to everyone, ensuring that users can gain valuable insights without the need for specialized technical knowledge.</p>
 							</header>
 							<footer class="major">
 								<ul class="actions special">

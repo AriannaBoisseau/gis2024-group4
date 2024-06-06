@@ -220,6 +220,7 @@ confidence.setVisible(false);
 
 //step3
 population.setVisible(false);
+susMap_rec.setVisible(false);
 
 //extra
 merged.setVisible(false);
