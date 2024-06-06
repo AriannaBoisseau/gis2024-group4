@@ -74,19 +74,20 @@
 								</header>
 								<ul class="alt" style="text-align: left;">
 									<li><b>Landslide inventory</b> <br> from <a href="https://www.progettoiffi.isprambiente.it/?lang=en">IFFI catalogue</a>  with a scale of 1:10000</li>
-									The Italian Landslide Inventory (IFFI) is the national database on landslides, managed by ISPRA in collaboration with regional authorities, established after the 1998 landslide disaster in Campania. Since 2005, IFFI has been publicly accessible online, serving as a crucial resource for land planning, hazard assessment, and Civil Protection Emergency Plans, documenting over 620,000 landslides across Italy.
-									<li><b>Digital Terrain Model</b> <br> from <a href="https://www.progettoiffi.isprambiente.it/?lang=en">GeoPortale Lombardia</a> with a spatial resolution of 5 m/px</li>
-									A Digital Terrain Model (DTM) is a representation of the Earth's surface that captures natural terrain features, excluding objects like buildings and vegetation. It provides detailed elevation data typically derived from remote sensing technologies such as LiDAR, photogrammetry, or satellite imagery.
-									<li><b>Land use and land cover</b> <br> Destinazione d'Uso dei Suoli Agricoli e Forestali from <a href="https://www.geoportale.regione.lombardia.it/en-GB/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3A7cd05e9f-b693-4d7e-a8de-71b40b45f54e&_jsfBridgeRedirect=true">GeoPortale Lombardia</a></li>
-									DUSAF is an Italian land use and land cover classification system. It is used to categorize and map different types of agricultural and forest land uses, providing essential data for environmental monitoring, land management, urban planning, and agricultural policy development.
+									The Italian Landslide Inventory (IFFI) is the national database of landslides, managed by ISPRA in collaboration with regional authorities, established after the 1998 landslide disaster in Campania. Since 2005, IFFI has been publicly accessible online, serving as a crucial resource for land planning, hazard assessment, and Civil Protection Emergency Plans, documenting over 620,000 landslides across Italy.
+									<li><b>Digital Terrain Model</b> <br> from <a href="https://www.geoportale.regione.lombardia.it/en/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Adfc98d60-5f02-4a2b-8113-5ad24cc53a9c&_jsfBridgeRedirect=true">GeoPortale Lombardia</a> with a spatial resolution of 5 m/px</li>
+									A Digital Terrain Model (DTM) is a representation of the Earth's surface that captures natural terrain features, excluding objects like buildings and vegetation. It provides detailed elevation data typically derived from remote sensing technologies such as LiDAR, photogrammetry or satellite imagery.
+									<li><b>Land use and land cover</b> <br> Destinazione d'Uso dei Suoli Agricoli e Forestali from <a href="https://www.geoportale.regione.lombardia.it/en/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3A3850b793-c13f-45ee-8bf8-31c020fdbe0e&_jsfBridgeRedirect=true">GeoPortale Lombardia</a></li>
+									DUSAF is an Italian land use and land cover classification system. It is used to categorize and map different types of agricultural and forest land uses, providing essential data for environmental monitoring, land management, urban planning and agricultural policy development.
 									<li><b>Road and rivers network</b> <br> from <a href="https://www.openstreetmap.org/export#map=12/45.7397/9.9677">OpenStreetMap</a></li>
-									OpenStreetMap is a collaborative project that provides freely accessible geographic data and mapping information. It is possible to dowload data directly from OSM with the <i>export</i> feature.
+									OpenStreetMap is a collaborative project that provides freely accessible geographic data and mapping information. It is possible to download data directly from OSM with the <i>export</i> &nbsp;feature.
 									<li><b>Distance to geological faults</b> <br> from <a href="https://www.geoportale.regione.lombardia.it/en/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Aa1cbcd90-f0dd-4af2-88ac-a9fb0ecccf3d&_jsfBridgeRedirect=true">Geoportale Lombardia</a></li>
-									Geological faults are fractures or zones of weakness in the Earth's crust where significant displacement of rock layers has occurred due to tectonic forces.
+									Geological faults are fractures or zones of weakness in the Earth's crust where significant displacement of rock layers has occurred due to tectonic forces. We took into consideration this layer because the presence of faults is strongly correlated to the occurency of landslides due to terrain's vibrations. 
 									<li><b>Normalized Difference Vegetation Index</b> <br> derived from images of <a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2">ESA Copernicus Sentinel-2</a></li>
 									NDVI is a numerical indicator used in remote sensing to assess the presence, density, and health of vegetation on the Earth's surface. It is calculated using the following formula:
 									<code>NDVI = (NIR - Red) / (NIR + Red)</code>.
-									Where NIR represents the near-infrared light reflected by vegetation and Red represents the red light reflected by vegetation. 
+									Where NIR represents the near-infrared light reflected by vegetation and Red represents the red light reflected by vegetation.
+									A high vegetation index is usually found in presence of forests. Trees play a crucial role in stabilizing the soil through their roots, which anchor the soil and reduce landslides risk.
 								</ul>
 							</section>
 
@@ -119,7 +120,7 @@
 								<header class="major">
 									<h2>Tools used</h2>
 								</header>
-									<p><span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
+									<p style="text-align: left;"> <span class="image left"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
 										<b>QGIS</b> is a geographic information system (GIS) software that is free and open-source.
 										QGIS integrates with other open-source GIS packages, including PostGIS, GRASS GIS, SAGA GIS, and MapServer.
 									<p><span class="image right"><img src="images/dzetsaka.png" style="display: block;max-width: 50%;"/></span>
@@ -132,7 +133,7 @@
 									<p><span class="image right"><img src="images/OpenLayers_logo.svg" style="display: block;max-width: 60%;"/></span>
 										<b>OpenLayers</b> is an open-source JavaScript library for displaying map data in web browsers as slippy maps.
 										It provides an API for building rich web-based geographic applications similar to Google Maps and Bing Maps. 
-									<p><span class="image left"><img src="images/vue.png" style="display: block;max-width: 0%;"/></span>
+									<p><span class="image left"><img src="images/vue.png" style="display: block;max-width: 25%;"/></span>
 										<b>Vue.js</b> is an open-source model-view-viewmodel front end JavaScript library for building user interfaces and single-page applications.	
 									<p><span class="image right"><img src="images/VSC.png" style="display: block;max-width: 40%;"/></span>
 										<b>Visual Studio Code</b> is a source-code editor developed by Microsoft for Windows, Linux, macOS and web browsers.
@@ -150,7 +151,7 @@
 							<section id="results" class="main special">
 								<header class="major">
 									<h2>Results</h2>
-									<p>While many people live in low-risk landslide areas, a significant portion is highly vulnerable. The analysis shows that 4% of the Lake Endine area's population is at risk, compared to Italy's national average of 2.2%.</p>
+									<p>While many people live in low-risk landslide areas, a significant portion is highly vulnerable. The analysis shows that 6% of the Lake Endine area's population is at risk or high-risk, compared to Italy's national average of 2.2%.</p>
 								</header>
 								<footer class="major">
 									<ul class="actions special">

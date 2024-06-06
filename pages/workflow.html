@@ -62,7 +62,7 @@
 											<br> 
 											<b>NDVI</b> 
 											<br> 
-											Computed from ESA Sentinel 2 images, we clipped it from the entire Lombardy region to our case study zone and also resampled from 10 per pixel to 5 meters per pixel to match the choosen common resolution. The scale goes from 0 (lowest vegetation index, usually where there are buildings and roads) to 1 (healty vegetated areas).
+											Computed from ESA Sentinel 2 images, we clipped it from the entire Lombardy region to our case study zone and also resampled from 10 meters per pixel to 5 meters per pixel to match the choosen common resolution. The scale goes from 0 (lowest vegetation index, usually where there are buildings and roads) to 1 (highly vegetated areas).
 										</p>
 
 										<br>
@@ -88,7 +88,7 @@
 											</span>
 											<br> 
 											<b>Faults</b> 
-											<br> Faults data from GeoPortale Lombardia, the territory is subdivided in classes based on the distance from the faults. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+											<br> Faults data from GeoPortale Lombardia, the territory is subdivided in classes based on the distance from the faults. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
@@ -103,7 +103,7 @@
 											</span>
 											<br> 
 											<b>Rivers</b> 
-											<br> River network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the rivers. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+											<br> River network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the rivers. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
@@ -115,14 +115,15 @@
 											</span>
 											<br> 
 											<b>Roads</b> 
-											<br> Road network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the roads. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+											<br> Road network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the roads. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
 										<br>
-										<h3>Computed from DTM</h3>
 										<br>
 										<br>
+
+										<p>From the DTM layer several terrain attributes can be computed, for example slope, aspect and profile curvature. They are useful for evaluating the rate of change of slope and can be used to identify features like ridges and valleys in the terrain. </p>
 
 										<p style="text-align: right;"> 
 											<span class="image right">
@@ -136,7 +137,6 @@
 										<br>
 										<br>
 										<br>
-										<br>
 
 										<p style="text-align: right;"> 
 											<span class="image right">
@@ -144,13 +144,9 @@
 											</span>
 											<br> 
 											<b>Plan</b> 
-											<br> <b>Da rivedere</b> Plan computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The plan is
+											<br>Plan computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The plan is perpendicular to the direction of the maximum slope. A positive value indicates the surface is sidewardly convex at that cell. A negative plan indicates the surface is sidewardly concave at that cell. A value of zero indicates the surface is linear Profile curvature relates to the convergence and divergence of flow across a surface.
 										</p>
 
-										<br>
-										<br>
-										<br>
-										<br>
 										<br>
 
 										<p style="text-align: right;"> 
@@ -159,14 +155,8 @@
 											</span>
 											<br> 
 											<b>Profile</b> 
-											<br> <b>Da rivedere</b> Profile computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The profile is
+											<br>Profile computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The profile curvature is parallel to the direction of the maximum slope. A positive profile indicates that the surface is upwardly concave at that cell. A negative value indicates that the surface is upwardly convex at that cel. While a value of zero indicates that the surface is linear. The profile curvature affects the acceleration or deceleration of flow across the surface.
 										</p>
-
-										<br>
-										<br>
-										<br>
-										<br>
-										<br>
 
 										<p style="text-align: right;"> 
 											<span class="image right">
@@ -174,24 +164,19 @@
 											</span>
 											<br> 
 											<b>Slope</b> 
-											<br> Slope computed from the DTM thanks to the <code>GDAL - Slope</code> function in QGIS. The slope is the steepness of the terrain.
+											<br> Slope computed from the DTM thanks to the <code>GDAL - Slope</code> function in QGIS. The slope refers to the rate of change of elevation for each cell within a digital elevation model (DEM). It is essentially the first derivative of a DEM, indicating how steep a particular part of the terrain is. The slope is usually expressed in degrees or as a percentage, representing the angle of incline or decline relative to a horizontal plane.
 										</p>
-										
-										<br>
-										<br>
-										<br>
-										<br>
-										<br>
-										<br>
 
-										<p style="text-align: left;"> Then starting from Slope layer, we computed NLZ (No Landslides Zone), the zones in which a landslide theoretically can't occur. We obtained it using in the Raster calculator the following formula: <code>"slope@1" &lt; 20 OR "slope@1" &gt; 70</code> and sieving for remove too small areas, not significant for our purposes.<br>The resulting layer is shown below. Also samples from zone in which landslides are already occurred (from IFFI catalogue) are useful, both for removing that zones from computed NLZ as untrue information (since a landslide in that area has already happened) and also as example of area in which a landslide can occur, for the next steps in which we will automatically recognized area at risk.</p>
+										<br>
+										
+										<p style="text-align: left;"> Then starting from Slope layer, we computed NLZ (No Landslides Zone), the zones in which a landslide theoretically can't occur. We obtained it using in the Raster calculator the following formula: <code>"slope@1" &lt; 20 OR "slope@1" &gt; 70</code> and sieving it for remove too small areas, not significant for our purposes.<br>Moreover we used data from zone in which landslides have already occurred (from IFFI catalogue), both for removing that zones from computed NLZ as untrue information (since a landslide in that area has already happened) and also as example of area in which a landslide can occur. We did so in order to make our dataset more accurate for the next steps.</p>
 
 										<br>
 
 										<div class="box alt">
 											<div class="row gtr-uniform">
-												<div class="col-4"><span class="image fit"><a href="../images/NLZ.png"><img src="../images/NLZ.png" alt="" /></a></span><p>NLZ with Landslides zone from inventory subtracted</p></div>
-												<div class="col-4"><span class="image fit"><a href="../images/NLZ_separated.png"><img src="../images/NLZ_separated.png" alt="" /></a></span><p>NLZ divided in smaller pieces for next steps</p></div>
+												<div class="col-4"><span class="image fit"><a href="../images/NLZ.png"><img src="../images/NLZ.png" alt="" /></a></span><p>NLZ without areas already in Landslide inventory</p></div>
+												<div class="col-4"><span class="image fit"><a href="../images/NLZ_separated.png"><img src="../images/NLZ_separated.png" alt="" /></a></span><p>NLZ divided in smaller pieces</p></div>
 												<div class="col-4"><span class="image fit"><a href="../images/LS_inv.png"><img src="../images/LS_inv.png" alt="" /></a></span><p>Landslide inventory</p></div>
 											</div>
 										</div>
@@ -210,19 +195,17 @@
 								<header class="major">
 									<h2>Susceptibility Map</h2>
 								</header>
-								<p>To properly train and evaluate the model we generated a total of 1,000 points using the Random Points in layer bound tool, which randomly allocated labels to polygons. We assined the value 1 to the NLZ and 2 to the LS and we set a distance of 10 meters from one another . We decided to use a training-testing ratio of 30% for training and 70% for testing, maintaining a balanced 1:1 ratio in line with the ‘Hazard’ value. 
-									Then we performed a Merge operation on the training and testing layer into two point layers: the Training Points and Testing points.</p>
+								<p>To properly train and evaluate the model we generated a total of 1,000 points using the <code>Random Points in layer bound</code> tool, which randomly creates points within polygons. We assined the value 1 to the NLZ points and 2 to the LSZ points and we set a distance of 10 meters from one another. We decided to use a training-testing ratio of 70% for training and 30% for testing, maintaining a balanced 1:1 ratio in line with the 'Hazard' value. 
+									Then we performed a <code>Merge</code> operation on the training and testing layer, unifying them into one single layer.</p>
 								
 								<div class="table-wrapper">
 									<table>
-										<thead>
-											<tr>
-												<th>Train_Test</th>
-												<th>Hazard</th>
-												<th>Number of points</th>
-											</tr>
-										</thead>
 										<tbody>
+											<tr>
+												<td><b>Train_Test</b></td>
+												<td><b>Hazard</b></td>
+												<td><b>Number of points</b></td>
+											</tr>
 											<tr>
 												<td>Training</td>
 												<td>1</td>
@@ -252,29 +235,27 @@
 										</tfoot>
 									</table>
 								</div>
-								<h3>Training and testing points</h3>
+								<h3>Training and testing points merged</h3>
 								<div><a href="../images/merged&points.png"><img src="../images/merged&points.png" style="max-width: 35%;"/></a></div>
 
-									<div class="box alt">
-										<div class="row gtr-uniform">
-											<div class="col-6"><span class="image fit"><a href="../images/classification.png"><img src="../images/classification.png" alt="" /></a></span><p></p></div>
-											<div class="col-6"><span class="image fit"><a href="../images/confidence.png"><img src="../images/confidence.png" alt="" /></a></span><p></p></div>
-										</div>
+								<br>
+								<br>
+
+								<p>To generate the susceptibility map we used the classification tool from the <code>Dzetsaka Plugin</code>. We obtained a binary classification layer and its corresponding confidence layer. </p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform">
+										<div class="col-6"><span class="image fit"><a href="../images/classification.png"><img src="../images/classification.png" alt="" /></a></span><p></p></div>
+										<div class="col-6"><span class="image fit"><a href="../images/confidence.png"><img src="../images/confidence.png" alt="" /></a></span><p></p></div>
 									</div>
+								</div>
 
-								<h3>Susceptibility Map</h3>
-								
+								 <p>Then to create a unique layer we used the raster calculator, appling this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code> <br> obtaining this layer:
+								 </p>
 
-								<p>To generate the susceptibility map we used the classification tool fram the Dzetsaka Plugin. We then converted the classification confidence to class probability using the raster calculator, using this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code><br>
-									Sequentially, to validate the output obtained previously, we used the Accuracy Assessment and Sampling, from the processing scripts tools, on the Susceptibility maps and testing point obtained from the previous computation.
-									</p>
-
-								<p><span class="image"><a href="../images/susceptibility_map.png"><img src="../images/susceptibility_map.png" style="display: block;max-width: 100%;"/></a></span>
-										<b>SUS</b></p>
-
-								
-
-
+								 <p><span class="image"><a href="../images/susceptibility_map.png"><img src="../images/susceptibility_map.png" style="display: block;max-width: 100%;"/></a></span>
+								</p>
+								 
 							</section>
 
 						<!-- Group Section -->
@@ -282,6 +263,7 @@
 								<header class="major">
 									<h2>Validation</h2>
 								</header>
+								<p>Sequentially, to validate the output obtained previously, we used the <code>Accuracy Assessment and Sampling</code>, provided to us. We imported it into the processing scripts tools and ran it on the Susceptibility maps and testing points. <br> This is what we obtained: </p>
 
 								<h3>Confusion Matrix</h3>
 
@@ -289,21 +271,21 @@
 										<table class="alt">
 											<tbody>
 												<tr>
-													<td><b>Class/Reference</b></td>
+													<td><i>Class/Reference</i></td>
 													<td><b>No Landslides Zone</b></td>
 													<td><b>Landslides Zone</b></td>
-													<td><b>User's Accuracy</b></td>
-													<td><b>Producer's Accuracy</b></td>
+													<td><b>User's Accuracy (%)</b></td>
+													<td><b>Producer's Accuracy (%)</b></td>
 												</tr>
 												<tr>
-													<td>No Landslides Zone</td>
+													<td><b>No Landslides Zone</b></td>
 													<td>121</td>
 													<td>39</td>
 													<td>0.76</td>
 													<td>0.81</td>
 												</tr>
 												<tr>
-													<td>Landslides Zone</td>
+													<td><b>Landslides Zone</b></td>
 													<td>29</td>
 													<td>111</td>
 													<td>0.79</td>
@@ -314,7 +296,7 @@
 									</div>
 									<p>
 										<ul style="text-align: left;">
-											<li><b>Producer's accuracy (PA)</b> for a class indicates the likelihood that the class present on the ground is also captured by the classification in the thematic raster.</li>
+											<li><b>Producer's accuracy (PA)</b> for a class indicates the percentage that the class present in the ground truth is also captured by the classification.</li>
 											<code>PA = TP / (TP + FN)</code>
 											<li><b>User's accuracy (UA)</b> for a class reveals how frequently a user of the classified map will encounter the class accurately representing the ground reality.</li>
 											<code>UA = TP / (TP + FP)</code>
@@ -330,8 +312,10 @@
 								<header class="major">
 									<h2>Exposure Assessment</h2>
 								</header>
-								<p><span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
-									To conduct the exposure assessment, we acquired and reprojected the population raster dataset to match the coordinate reference system (CRS) of the sub-area vector layer and the susceptibility map obtained in the preceding step.</p>
+								
+								<p>
+									<span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
+									To conduct the exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the preceding step.</p>
 									<br>
 									<br>
 									<br>
@@ -342,13 +326,13 @@
 									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
 									<br>
 									<ul style="text-align: left;">
-										<li>Low: Values in the range [0, 25) %</li>
-										<li>Moderate: Values in the range [25, 50) %</li>
-										<li>High: Values in the range [50, 75) %</li>
-										<li>Very high: Values in the range [75, 100) %</li>
+										<li>Low: values in the range [0, 25) %</li>
+										<li>Moderate: values in the range [25, 50) %</li>
+										<li>High: values in the range [50, 75) %</li>
+										<li>Very high: values in the range [75, 100) %</li>
 									</ul>
-									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which approximated 81.67 meters.
-									By utilizing Raster layer zonal statistics, we computed the population count and we subsequencially used Excel to visualize the output through a pie chart illustrating the proportion of population within each susceptibility class before defined.
+									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which is approximately 81.67 meters.
+									By utilizing <code>Raster layer zonal statistics</code>, we computed the population count and lastly we used Excel to visualize the output through a pie chart, illustrating the proportion of population within each susceptibility class before defined.
 								</p>
 
 									<div class="box alt">
@@ -359,7 +343,7 @@
 										</div>
 									</div>
 
-									<p>The exposure assessment constitutes a crucial aspect in our assessment, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, of buildings, and infrastructure, facilitating the development of effective strategies for risk mitigation.In this exposure assessment in particular we are going to focus on the percentage of people that may be affected by potential landslide By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activties.</p>
+									<p>The exposure assessment constitutes a crucial aspect in our project, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, buildings and infrastructure, facilitating the development of effective strategies for risk mitigation. In this exposure assessment, in particular, we are going to focus on the percentage of people that may be affected by potential landslide. By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activties.</p>
 							</section>
 
 						<!-- Results Section -->
