@@ -41,30 +41,167 @@
 										<header class="major">
 											<h2>Preprocessing</h2>
 										</header>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 100%;"/></span>
-												<b>DTM</b>TODO scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1</p>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>NDVI</b>scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1</p>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>DUSAF</b>scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1 scrivere tutti gli step per arrivare ai deliverables dello step 1</p>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Faults</b></p>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Rivers</b></p>
-											<p><span class="image left"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Roads</b></p>
-											<p><span class="image right"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Aspect</b></p>
-											<p><span class="image right"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Plan</b></p>
-											<p><span class="image right"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Profile</b></p>
-											<p><span class="image right"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>Slope</b></p>
-											<p><span class="image"><img src="../images/LS.jpg" style="display: block;max-width: 50%;"/></span>
-												<b>NLZ</b></p>
 
+										<p style="text-align: left;"> 
+											<span class="image left"> 
+												<img src="../images/DTM.png" style="display: block;max-width: 100%;"/> 
+											</span>
+											<br> 
+											<b>DTM</b> 
+											<br> 
+											Starting with the DTM obtained through GeoPortale Lombardia, we clipped the layer to our assigned zone. The resolution per pixel of this layer is 5 m/px, and based on this, we decided to also standardise the resolutions of the other layers to match this value. The values in this layer ranges from about 240 meters above the mean sea level (lower Val Cavallina) to a maximum of about 1400 meters, reached in the mountains surrounding the Endine Lake.
+										</p>
 
+										<br>
+										<br>
+
+										<p style="text-align: left;"> 
+											<span class="image left"> 
+												<img src="../images/NDVI.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>NDVI</b> 
+											<br> 
+											Computed from ESA Sentinel 2 images, we clipped it from the entire Lombardy region to our case study zone and also resampled from 10 per pixel to 5 meters per pixel to match the choosen common resolution. The scale goes from 0 (lowest vegetation index, usually where there are buildings and roads) to 1 (healty vegetated areas).
+										</p>
+
+										<br>
+										<br>
+										<br>	
+
+										<p style="text-align: left;">
+											<span class="image left"> 
+												<img src="../images/DUSAF.png" style="display: block;max-width: 100%;"/> 
+											</span>
+											<br> 
+											<b>DUSAF</b> 
+											<br> 
+											Agricultural and Forestry Land Use Designation data from GeoPortale Lombardia, the territory is subdivided in classes based on the usage. Originally the starting layer was in WGS84 projection, so we reprojected it using<code>Warp (Reproject)</code>function into <b>WGS 84 / UTM zone 32N</b> projection and then clipped as the previous layers to our study area. Also in this case we resampled the layer to 5 meters per pixel (original resolution 5.8 m/px).
+										</p> 
+
+										<br>
+										<br>
+
+										<p style="text-align: left;"> 
+											<span class="image left">
+												<img src="../images/faults.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Faults</b> 
+											<br> Faults data from GeoPortale Lombardia, the territory is subdivided in classes based on the distance from the faults. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+										</p>
+
+										<br>
+										<br>
+										<br>
+										<br>
+										
+
+										<p style="text-align: left;"> 
+											<span class="image left">
+												<img src="../images/rivers.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Rivers</b> 
+											<br> River network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the rivers. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+										</p>
+
+										<br>
+										<br>
+
+										<p style="text-align: left;"> 
+											<span class="image left">
+												<img src="../images/roads.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Roads</b> 
+											<br> Road network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the roads. After clipping to our study area as the previous layers, in this case the layer was vectorial, so we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function.
+										</p>
+
+										<br>
+										<br>
+										<h3>Computed from DTM</h3>
+										<br>
+										<br>
+
+										<p style="text-align: right;"> 
+											<span class="image right">
+												<img src="../images/aspect.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Aspect</b> 
+											<br> Aspect computed from the DTM thanks to the <code>GDAL - Aspect</code> function in QGIS. The aspect is the orientation of the slope, and here it is subdivided in 8 classes for visualization purposes (N, NE, E, SE, S, SW, W, NW) plus flat areas. 
+										</p>
+
+										<br>
+										<br>
+										<br>
+										<br>
+
+										<p style="text-align: right;"> 
+											<span class="image right">
+												<img src="../images/plan.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Plan</b> 
+											<br> <b>Da rivedere</b> Plan computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The plan is
+										</p>
+
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
+										<p style="text-align: right;"> 
+											<span class="image right">
+												<img src="../images/profile.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Profile</b> 
+											<br> <b>Da rivedere</b> Profile computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The profile is
+										</p>
+
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
+										<p style="text-align: right;"> 
+											<span class="image right">
+												<img src="../images/slope.png" style="display: block;max-width: 100%;"/>
+											</span>
+											<br> 
+											<b>Slope</b> 
+											<br> Slope computed from the DTM thanks to the <code>GDAL - Slope</code> function in QGIS. The slope is the steepness of the terrain.
+										</p>
+										
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+										<br>
+
+										<p style="text-align: left;"> Then starting from Slope layer, we computed NLZ (No Landslides Zone), the zones in which a landslide theoretically can't occur. We obtained it using in the Raster calculator the following formula: <code>"slope@1" &lt; 20 OR "slope@1" &gt; 70</code> and sieving for remove too small areas, not significant for our purposes.<br>The resulting layer is shown below. Also samples from zone in which landslides are already occurred (from IFFI catalogue) are useful, both for removing that zones from computed NLZ as untrue information (since a landslide in that area has already happened) and also as example of area in which a landslide can occur, for the next steps in which we will automatically recognized area at risk.</p>
+
+										<br>
+
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="../images/NLZ.png" alt="" /></span><p>NLZ with Landslides zone from inventory subtracted</p></div>
+												<div class="col-4"><span class="image fit"><img src="../images/NLZ_separated.png" alt="" /></span><p>NLZ divided in smaller pieces for next steps</p></div>
+												<div class="col-4"><span class="image fit"><img src="../images/LS_inv.png" alt="" /></span><p>Landslide inventory</p></div>
+											</div>
+										</div>
+										<div class="box alt">
+											<div class="row gtr-uniform">
+												<div class="col-4"></div>
+												<div class="col-4"><span class="image fit"><img src="../images/NLZ_LS_inv_union.png" alt="" /></span><p>Union of previous layer (NLZ + LS Inventory)</p></div>
+												<div class="col-4"></div>
+											</div>
+										</div>
 								</div>
 							</section>
 
@@ -116,15 +253,23 @@
 								</div>
 								<p><span class="image"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
 									<b>NLZ</b> TODO: mettere immagine con punti, colorati e divisi nelle 4 classi. con legenda</p>
+
+								<div class="box alt">
+									<div class="row gtr-uniform">
+										<div class="col-6"><span class="image fit"><img src="../images/classification.png" alt="" /></span><p></p></div>
+										<div class="col-6"><span class="image fit"><img src="../images/confidence.png" alt="" /></span><p></p></div>
+									</div>
+								</div>
+
 								<h3>Susceptibility Map</h3>
-								<p><span class="image"><img src="images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></span>
-									TODO: mettere immagini di classification e confidence</p>
+								
 
 								<p>To generate the susceptibility map we used the classification tool fram the Dzetsaka Plugin. We then converted the classification confidence to class probability using the raster calculator, using this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code><br>
 									Sequentially, to validate the output obtained previously, we used the Accuracy Assessment and Sampling, from the processing scripts tools, on the Susceptibility maps and testing point obtained from the previous computation.
 									</p>
 
-								<p>TODO: mettere immagine della susceptibility map</p>
+								<p><span class="image"><img src="../images/susceptibility_map.png" style="display: block;max-width: 100%;"/></span>
+										<b>SUS</b></p>
 
 								
 
@@ -200,9 +345,9 @@
 
 									<div class="box alt">
 										<div class="row gtr-uniform">
-											<div class="col-4"><span class="image fit"><img src="../images/pic01.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="../images/pic02.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="../images/pic03.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="../images/susceptibility_map.png" alt="" /></span><p>Original</p></div>
+											<div class="col-4"><span class="image fit"><img src="../images/susceptibility_map_reclass.png" alt="" /></span><p>Reclassified</p></div>
+											<div class="col-4"><span class="image fit"><img src="../images/susceptibility_map_reclass_resamp.png" alt="" /></span><p>Reclassified and resampled</p></div>
 										</div>
 									</div>
 
@@ -242,10 +387,15 @@
 									</table>
 								</div>
 
-								<p><b>TODO testo da affiancare </b> From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population vulnerable to an exceptionally high risk and high risk of landslides. 
-									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% risk while the percentage of population resulting from out analysis at risk or high risk in the lake Endine surrounding area is </p>
-								
-								<span class="image"><img src="../images/pie_plot.png" style="display: block;max-width: 50%;"/></span>
+								<br>
+
+								<p style="text-align: left;"> 
+									<span class="image left">
+										<img src="../images/pie_plot.png" style="display: block;max-width: 100%;"/>
+									</span>
+									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population vulnerable to an exceptionally high risk and high risk of landslides. 
+									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% risk while the percentage of population resulting from out analysis at risk or high risk in the lake Endine surrounding area is 
+								</p>
 							</section>
 
 						<!-- Results Section -->
