@@ -210,7 +210,8 @@
 								<header class="major">
 									<h2>Susceptibility Map</h2>
 								</header>
-								<p>TODO We define a new field Hazard in the attribute tables of both Landslide Inventory and NLZ assigning 0 to the NLZ and 1 to the LS. We decide the training-testing ratio to use for our machine learning model: 70% training - 30% testing. Then, we create a new text attribute Train_Test and we assigne the value Training or Testing according to the selected polygons. We did it usign the tool Random Selection to assign to random polygons the value of Training or Testing. Furthermore we use Merge with LS and NLZ layrers. In a first place we define 1000 points within the area: 700 for train and 300 for test divided in the Hazard with value 1 and 0, so we obtaine</p>
+								<p>To properly train and evaluate the model we generated a total of 1,000 points using the Random Points in layer bound tool, which randomly allocated labels to polygons. We assined the value 1 to the NLZ and 2 to the LS and we set a distance of 10 meters from one another . We decided to use a training-testing ratio of 30% for training and 70% for testing, maintaining a balanced 1:1 ratio in line with the ‘Hazard’ value. 
+									Then we performed a Merge operation on the training and testing layer into two point layers: the Training Points and Testing points.</p>
 								
 								<div class="table-wrapper">
 									<table>
@@ -329,9 +330,14 @@
 								<header class="major">
 									<h2>Exposure Assessment</h2>
 								</header>
-								<p><span class="image right"><a href="../images/QGIS_logo.svg"><img src="../images/QGIS_logo.svg" style="display: block;max-width: 50%;"/></a></span>
+								<p><span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
 									To conduct the exposure assessment, we acquired and reprojected the population raster dataset to match the coordinate reference system (CRS) of the sub-area vector layer and the susceptibility map obtained in the preceding step.</p>
-								<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
 									<br>
 									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
 									<br>
@@ -342,7 +348,7 @@
 										<li>Very high: Values in the range [75, 100) %</li>
 									</ul>
 									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which approximated 81.67 meters.
-									By utilizing Raster layer zonal statistics, we computed the population count and we subsequencially used the Plugin Plotly to visualize the output through a pie chart illustrating the proportion of population within each susceptibility class before defined.
+									By utilizing Raster layer zonal statistics, we computed the population count and we subsequencially used Excel to visualize the output through a pie chart illustrating the proportion of population within each susceptibility class before defined.
 								</p>
 
 									<div class="box alt">
@@ -400,7 +406,7 @@
 										<a href="../images/pie_plot.png"><img src="../images/pie_plot.png" style="display: block;max-width: 100%;"/></a>
 									</span>
 									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population vulnerable to an exceptionally high risk and high risk of landslides. 
-									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% risk while the percentage of population resulting from out analysis at risk or high risk in the lake Endine surrounding area is 
+									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is 6 %.
 								</p>
 							</section>
 
@@ -411,9 +417,9 @@
 							</header>
 							<ul class="alt">
 								<li>We had to manually clip the NLZ layer into different sections in order to obtain better distributed points.</li>
-								<li>We had to convert integer into the floating-point data type to successfully merge the NLZ and LS-inventory layers.</li>
+								<li>We had to convert integer into floating-point to successfully merge the NLZ and LS-inventory layers.</li>
 								<li>We used the GDAL tool (Aspect) instead of the SAGA (Slope,aspect,curvature), because otherwise it would indicate a NULL value in flat areas instead of zero, creating gaps within the layer and causing issues for subsequent operations.</li>
-								<li>We launced multiple times the tool to generate random points multiple times in order to produce points consistent with our study area.</li>	
+								<li>We launced multiple times the tool to generate random points in order to produce points consistent with our study area.</li>	
 							</ul>
 
 						</section>
@@ -422,7 +428,8 @@
 						<section id="webgis" class="main special">
 							<header class="major">
 								<h2>WebGIS</h2>
-								<p>TODO come si è realizzato il webgis e i layer di base, controlli ecc ecc (fuffa)</p>
+								<p>In the final phase of our project, we have developed a WebGIS platform that facilitates the visualization of the analyzed maps and of the landslide susceptibility map. This tool is designed to be user-friendly, allowing individuals to easily interact with the map. Thanks to the intuitive interface, users are able to navigate through our collection of layers. They can effortlessly zoom in and out and switch between various layers making it possible to better comprehend the landslide susceptibility assessment.
+									Moreover, our WebGIS platform is thoughtfully equipped with a set of base maps that serve as a backdrop, enhancing the overall user experience. The overall scope of our webGis is to encourage users to explore and understand the data deeply, leading to a greater awareness of the nuances of landslide susceptibility and its potential impact on the environment. Additionally, our WebGIS is designed to be accessible to everyone, ensuring that users can gain valuable insights without the need for specialized technical knowledge.</p>
 							</header>
 							<footer class="major">
 								<ul class="actions special">
