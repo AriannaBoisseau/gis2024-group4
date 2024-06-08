@@ -142,7 +142,7 @@ var susMap = new Image({
     })
 });
 
-//step 3
+//step 3 population
 
 var population = new Image({
     title: "Population",
@@ -157,6 +157,32 @@ var susMap_rec = new Image({
     source: new ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
         params: { 'LAYERS': 'gisgeoserver_04:LandslideSusceptibilityMap_reclass_resamp'}
+    })
+});
+
+//step 3 buildings
+
+var buildings = new Image({
+    title: "Buildings",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:buildings'}
+    })
+});
+
+var buildings_raster = new Image({
+    title: "Buildings Rasterized",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:buildings_raster'}
+    })
+});
+
+var buildings_points = new Image({
+    title: "Points in buildings",
+    source: new ImageWMS({
+        url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+        params: { 'LAYERS': 'gisgeoserver_04:buildings_points'}
     })
 });
 
@@ -191,9 +217,13 @@ let step2 = new Group({
     title: "Step 2",
     layers: [confidence, susMap]
 })
-let step3 = new Group({
-    title: "Step 3",
+let step3_pop = new Group({
+    title: "Step 3 Population",
     layers: [population, susMap_rec]
+})
+let step3_build = new Group({
+    title: "Step 3 Buildings",
+    layers: [buildings_raster, buildings, buildings_points]
 })
 let extra = new Group({
     title: "Extra Layers",
@@ -218,9 +248,14 @@ testPoints.setVisible(false);
 //step2
 confidence.setVisible(false);
 
-//step3
+//step3 population
 population.setVisible(false);
 susMap_rec.setVisible(false);
+
+//step3 buildings
+buildings.setVisible(false);
+buildings_raster.setVisible(false);
+buildings_points.setVisible(false);
 
 //extra
 merged.setVisible(false);
@@ -229,7 +264,7 @@ outline.setVisible(false);
 // Map Initialization
 let map = new Map({
     target: document.getElementById('map'),
-    layers: [basemapLayers, extra, step3, step2, step1],
+    layers: [basemapLayers, extra, step3_build, step3_pop, step2, step1],
     view: new View({
         center: fromLonLat([9.92, 45.74]), //center of our group areas
         zoom: 12
