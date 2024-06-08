@@ -310,18 +310,9 @@
 						<!-- Tools Section -->
 							<section id="exp" class="main special">
 								<header class="major">
-									<h2>Exposure Assessment for population</h2>
+									<h2>Exposure Assessment</h2>
 								</header>
-								
-								<p>
-									<span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
-									To conduct the exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the preceding step.</p>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
+								<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
 									<br>
 									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
 									<br>
@@ -331,27 +322,21 @@
 										<li>High: values in the range [50, 75) %</li>
 										<li>Very high: values in the range [75, 100) %</li>
 									</ul>
-									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which is approximately 81.67 meters.
-									By utilizing <code>Raster layer zonal statistics</code>, we computed the population count and lastly we used Excel to visualize the output through a pie chart, illustrating the proportion of population within each susceptibility class before defined.
 								</p>
-
-									<div class="box alt">
-										<div class="row gtr-uniform">
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map.png"><img src="../images/susceptibility_map.png" alt="" /></a></span><p>Original</p></div>
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass.png"><img src="../images/susceptibility_map_reclass.png" alt="" /></a></span><p>Reclassified</p></div>
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass_resamp.png"><img src="../images/susceptibility_map_reclass_resamp.png" alt="" /></a></span><p>Reclassified and resampled</p></div>
-										</div>
+								<p>To determine exposures, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population/buildings raster datasets, which is approximately 81.67 meters.</p>
+								<div class="box alt">
+									<div class="row gtr-uniform">
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map.png"><img src="../images/susceptibility_map.png" alt="" /></a></span><p>Original</p></div>
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass.png"><img src="../images/susceptibility_map_reclass.png" alt="" /></a></span><p>Reclassified</p></div>
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass_resamp.png"><img src="../images/susceptibility_map_reclass_resamp.png" alt="" /></a></span><p>Reclassified and resampled</p></div>
 									</div>
-
-									<p>The exposure assessment constitutes a crucial aspect in our project, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, buildings and infrastructure, facilitating the development of effective strategies for risk mitigation. In this exposure assessment, in particular, we are going to focus on the percentage of people that may be affected by potential landslide. By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activties.</p>
-								
-								<header class="major">
-									<h2>Exposure Assessment for buildings</h2>
-								</header>
-
+								</div>
+								<h3 style="text-align: left;"><b>Population</b></h3>
+								<br>
 								<p>
 									<span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
-									TODO come abbiamo ottenuto raster buildings</p>
+									To conduct the population exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the previous step.
+									<br>
 									<br>
 									<br>
 									<br>
@@ -359,14 +344,38 @@
 									<br>
 									<br>
 								</p>
-
+								<h3 style="text-align: left;"><b>Buildings</b></h3>
+								<br>
+								<p>
+									<span class="image left"><a href="../images/OSM_buildings.png"><img src="../images/OSM_buildings.png" style="display: block;"/></a></span>
+									<p style="text-align: left;"><br><br>In order to obtain the rasterized density map of the buildings in our case study area, using Overpass Turbo, we extracted all the buildings in the area using the external bound of our area as polygon in which execute the query, converted from GeoJSON to GeoPackage and reprojected to UTM 32N (Overpass Turbo gives the results in WGS84) using as before <code>Warp (Reproject)</code>. Then to have countable feutures, we can extract one point for each polygon in its barycenter using <code>Centroids</code>. Creating a vector grid with the same pixel size of the resampled susceptibility map and with the same extent give us the possibility to use the QGIS function <code>Count points in polygon</code>. Now each cell of the grid has the information of how many buildings are within, and rasterazing this grid we get the raster layer shown below</p>
+									
+									<span class="image right"><a href="../images/buildings.png"><img src="../images/buildings.png" style="display: block;"/></a></span>
+									
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+								</p>
+								<hr>
+								<p>By utilizing <code>Raster layer zonal statistics</code>, we computed the count both for population and buildings, and lastly we used Excel to visualize the output through pie charts, illustrating the proportion of population and buildings within each susceptibility class previously defined.</p>
+								<hr>
+								<p>The exposure assessment constitutes a crucial aspect in our project, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, buildings and infrastructure, facilitating the development of effective strategies for risk mitigation. In this exposure assessment, in particular, we are going to focus on the percentage of people and buildings that may be affected by potential landslide. By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activities.</p>
+						
 							</section>
 
 						<!-- Results Section -->
 							<section id="results" class="main special">
 								<header class="major">
-									<h2>Results for population</h2>
+									<h2>Results</h2>
 								</header>
+								<h3 style="text-align: left;"><b>Population</b></h3>
+								<br>
 								<div class="table-wrapper">
 									<table class="alt">
 										<tbody>
@@ -409,16 +418,15 @@
 									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is around 6%.
 								</p>
 
-								<header class="major">
-									<h2>Results for buildings</h2>
-								</header>
+								<h3 style="text-align: left;"><b>Buildings</b></h3>
+								<br>
 								<div class="table-wrapper">
 									<table class="alt">
 										<tbody>
 											<tr>
 												<td><b>Zone</b></td>
 												<td><b>Sum (buildings)</b></td>
-												<td><b>buildings percentage (%)</b></td>
+												<td><b>Buildings percentage (%)</b></td>
 											</tr>
 											<tr>
 												<td>&lt; 25%</td>
@@ -448,9 +456,9 @@
 
 								<p style="text-align: left;"> 
 									<span class="image left">
-										<a href="../images/pie_plot.png"><img src="../images/pie_plot.png" style="display: block;max-width: 100%;"/></a>
+										<a href="../images/pie_plot_buildings.png"><img src="../images/pie_plot_buildings.png" style="display: block;max-width: 100%;"/></a>
 									</span>
-								TODO cambiare immagine e mettere spiegazione
+								TODO mettere spiegazione
 								<br>
 								<br>
 								<br>
