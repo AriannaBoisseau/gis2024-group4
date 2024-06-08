@@ -281,9 +281,3 @@ var bingAerial = new Tile({
 });
 basemapLayers.getLayers().extend([bingRoads, bingAerial]);
 
-// Adding map event for pointermove
-map.on('pointermove', function (event) {
-    var pixel = map.getEventPixel(event.originalEvent);
-    var hit = map.hasFeatureAtPixel(pixel);
-    map.getTarget().style.cursor = hit ? 'pointer' : '';
-});
