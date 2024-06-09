@@ -333,11 +333,9 @@
 								</div>
 								<h3 style="text-align: left;"><b>Population</b></h3>
 								<br>
-								<p>
+								<p style="text-align: right;">
 									<span class="image right"><a href="../images/population.png"><img src="../images/population.png" style="display: block;"/></a></span>
-									To conduct the population exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the previous step.
-									<br>
-									<br>
+									<br><br>To conduct the population exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the previous step.
 									<br>
 									<br>
 									<br>
@@ -346,22 +344,19 @@
 								</p>
 								<h3 style="text-align: left;"><b>Buildings</b></h3>
 								<br>
-								<p>
+								<p style="text-align: left;">
 									<span class="image left"><a href="../images/OSM_buildings.png"><img src="../images/OSM_buildings.png" style="display: block;"/></a></span>
-									<p style="text-align: left;"><br><br>In order to obtain the rasterized density map of the buildings in our case study area, using Overpass Turbo, we extracted all the buildings in the area using the external bound of our area as polygon in which execute the query, converted from GeoJSON to GeoPackage and reprojected to UTM 32N (Overpass Turbo gives the results in WGS84) using as before <code>Warp (Reproject)</code>. Then to have countable feutures, we can extract one point for each polygon in its barycenter using <code>Centroids</code>. Creating a vector grid with the same pixel size of the resampled susceptibility map and with the same extent give us the possibility to use the QGIS function <code>Count points in polygon</code>. Now each cell of the grid has the information of how many buildings are within, and rasterazing this grid we get the raster layer shown below</p>
+									<br><br>In order to obtain the rasterized density map of the buildings in our case study area, using Overpass Turbo, we extracted all the buildings in the area using the external bound of our area as polygon in which execute the query, converted from GeoJSON to GeoPackage and reprojected to UTM 32N (Overpass Turbo gives the results in WGS84) using as before <code>Warp (Reproject)</code>. Then to have countable feutures, we can extract one point for each polygon in its barycenter using <code>Centroids</code>.
 									
-									<span class="image right"><a href="../images/buildings.png"><img src="../images/buildings.png" style="display: block;"/></a></span>
 									
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
 								</p>
+								<br>
+								<p style="text-align: right;">
+									<span class="image right"><a href="../images/buildings.png"><img src="../images/buildings.png" style="display: block;"/></a></span>
+									<br><br>Creating a vector grid (function <code>Create grid</code>) with the same pixel size of the resampled susceptibility map and with the same extent give us the possibility to use the QGIS function <code>Count points in polygon</code>. Now each cell of the grid has the information of how many buildings are within, and rasterazing this grid we get the raster layer of buildings density shown at side.
+								</p>
+								<br>
+								<br>
 								<hr>
 								<p>By utilizing <code>Raster layer zonal statistics</code>, we computed the count both for population and buildings, and lastly we used Excel to visualize the output through pie charts, illustrating the proportion of population and buildings within each susceptibility class previously defined.</p>
 								<hr>
@@ -412,7 +407,7 @@
 
 								<p style="text-align: left;"> 
 									<span class="image left">
-										<a href="../images/pie_plot.png"><img src="../images/pie_plot.png" style="display: block;max-width: 100%;"/></a>
+										<a href="../images/pie_plot_population.png"><img src="../images/pie_plot_population.png" style="display: block;max-width: 100%;"/></a>
 									</span>
 									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population at high risk and at risk of landslides. 
 									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is around 6%.
