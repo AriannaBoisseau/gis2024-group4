@@ -51,7 +51,7 @@
 											<br> 
 											<b>DTM</b> 
 											<br> 
-											Starting with the DTM obtained through GeoPortale Lombardia, we clipped the layer to our assigned zone. The resolution per pixel of this layer is 5 m/px, and based on this, we decided to also standardise the resolutions of the other layers to match this value. The values in this layer ranges from about 240 meters above the mean sea level (lower Val Cavallina) to a maximum of about 1400 meters, reached in the mountains surrounding the Endine Lake.
+											Starting with the DTM obtained through <b>GeoPortale Lombardia</b>, we clipped the layer to our assigned zone. The resolution per pixel of this layer is 5 m/px, and based on this, we decided to also standardise the resolutions of the other layers to match this value. The values in this layer ranges from about 240 meters above the mean sea level (lower Val Cavallina) to a maximum of about 1400 meters, reached in the mountains surrounding the Endine Lake.
 										</p>
 
 										<br>
@@ -64,7 +64,7 @@
 											<br> 
 											<b>NDVI</b> 
 											<br> 
-											Computed from ESA Sentinel 2 images, we clipped it from the entire Lombardy region to our case study zone and also resampled from 10 meters per pixel to 5 meters per pixel to match the choosen common resolution. The scale goes from 0 (lowest vegetation index, usually where there are buildings and roads) to 1 (highly vegetated areas).
+											Computed from <b>ESA Sentinel 2</b> images, we clipped it from the entire Lombardy region to our case study zone and also resampled from 10 meters per pixel to 5 meters per pixel to match the choosen common resolution. The scale goes from 0 (lowest vegetation index, usually where there are buildings and roads) to 1 (highly vegetated areas).
 										</p>
 
 										<br>
@@ -78,7 +78,7 @@
 											<br> 
 											<b>DUSAF</b> 
 											<br> 
-											Agricultural and Forestry Land Use Designation data from GeoPortale Lombardia, the territory is subdivided in classes based on the usage. Originally the starting layer was in WGS84 projection, so we reprojected it using<code>Warp (Reproject)</code>function into <b>WGS 84 / UTM zone 32N</b> projection and then clipped as the previous layers to our study area. Also in this case we resampled the layer to 5 meters per pixel (original resolution 5.8 m/px).
+											Agricultural and Forestry Land Use Designation data from <b>GeoPortale Lombardia</b>, the territory is subdivided in classes based on the usage. Originally the starting layer was in WGS84 projection, so we reprojected it using<code>Warp (Reproject)</code>function into <b>WGS 84 / UTM zone 32N</b> projection and then clipped as the previous layers to our study area. Also in this case we resampled the layer to 5 meters per pixel (original resolution 5.8 m/px).
 										</p> 
 
 										<br>
@@ -90,7 +90,7 @@
 											</span>
 											<br> 
 											<b>Faults</b> 
-											<br> Faults data from GeoPortale Lombardia, the territory is subdivided in classes based on the distance from the faults. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
+											<br> Faults data from <b>GeoPortale Lombardia</b>, the territory is subdivided in classes based on the distance from the faults. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
@@ -105,7 +105,7 @@
 											</span>
 											<br> 
 											<b>Rivers</b> 
-											<br> River network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the rivers. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
+											<br> River network data retrieved from <b>OpenStreetMap</b>, the territory is subdivided in classes based on the distance from the rivers. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
@@ -117,7 +117,7 @@
 											</span>
 											<br> 
 											<b>Roads</b> 
-											<br> Road network data retrieved from OpenStreetMap, the territory is subdivided in classes based on the distance from the roads. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
+											<br> Road network data retrieved from <b>OpenStreetMap</b>, the territory is subdivided in classes based on the distance from the roads. After clipping to our study area as the previous layers, we converted it into raster using<code>Rasterize (Vector to Raster)</code>QGIS function since in this case the layer was vectorial.
 										</p>
 
 										<br>
@@ -125,7 +125,7 @@
 										<br>
 										<br>
 
-										<p>From the DTM layer several terrain attributes can be computed, for example slope, aspect and profile curvature. They are useful for evaluating the rate of change of slope and can be used to identify features like ridges and valleys in the terrain. </p>
+										<p>From the DTM layer several terrain attributes can be computed, for example <b>slope</b>, <b>aspect</b> and <b>profile curvature</b>. They are useful for evaluating the rate of change of slope and can be used to <b>identify features</b> like ridges and valleys in the terrain. </p>
 
 										<p style="text-align: right;"> 
 											<span class="image right">
@@ -133,7 +133,7 @@
 											</span>
 											<br> 
 											<b>Aspect</b> 
-											<br> Aspect computed from the DTM thanks to the <code>GDAL - Aspect</code> function in QGIS. The aspect is the orientation of the slope, and here it is subdivided in 8 classes for visualization purposes (N, NE, E, SE, S, SW, W, NW) plus flat areas. 
+											<br> Aspect computed from the DTM thanks to the <code>GDAL - Aspect</code> function in QGIS. The aspect is the <b>orientation of the slope</b>, and here it is subdivided in 8 classes for visualization purposes (N, NE, E, SE, S, SW, W, NW) plus flat areas. 
 										</p>
 
 										<br>
@@ -146,7 +146,7 @@
 											</span>
 											<br> 
 											<b>Plan</b> 
-											<br>Plan computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The plan is perpendicular to the direction of the maximum slope. A positive value indicates the surface is sidewardly convex at that cell. A negative plan indicates the surface is sidewardly concave at that cell. A value of zero indicates the surface is linear Profile curvature relates to the convergence and divergence of flow across a surface.
+											<br>Plan computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The plan is <b>perpendicular</b> to the <b>direction of the maximum slope</b>. A positive value indicates the surface is sidewardly convex at that cell. A negative plan indicates the surface is sidewardly concave at that cell. A value of zero indicates the surface is linear Profile curvature relates to the convergence and divergence of flow across a surface.
 										</p>
 
 										<br>
@@ -157,7 +157,7 @@
 											</span>
 											<br> 
 											<b>Profile</b> 
-											<br>Profile computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The profile curvature is parallel to the direction of the maximum slope. A positive profile indicates that the surface is upwardly concave at that cell. A negative value indicates that the surface is upwardly convex at that cel. While a value of zero indicates that the surface is linear. The profile curvature affects the acceleration or deceleration of flow across the surface.
+											<br>Profile computed from the DTM thanks to the <code>SAGA - Slope, Aspect, Curvature</code> function in QGIS. The profile curvature is <b>parallel</b> to the <b>direction of the maximum slope</b>. A positive profile indicates that the surface is upwardly concave at that cell. A negative value indicates that the surface is upwardly convex at that cel. While a value of zero indicates that the surface is linear. The profile curvature affects the acceleration or deceleration of flow across the surface.
 										</p>
 
 										<p style="text-align: right;"> 
@@ -166,12 +166,12 @@
 											</span>
 											<br> 
 											<b>Slope</b> 
-											<br> Slope computed from the DTM thanks to the <code>GDAL - Slope</code> function in QGIS. The slope refers to the rate of change of elevation for each cell within a digital elevation model (DEM). It is essentially the first derivative of a DEM, indicating how steep a particular part of the terrain is. The slope is usually expressed in degrees or as a percentage, representing the angle of incline or decline relative to a horizontal plane.
+											<br> Slope computed from the DTM thanks to the <code>GDAL - Slope</code> function in QGIS. The slope refers to the <b>rate of change of elevation</b> for each cell within a digital elevation model (DEM). It is essentially the first derivative of a DEM, indicating how steep a particular part of the terrain is. The slope is usually expressed in degrees or as a percentage, representing the angle of incline or decline relative to a horizontal plane.
 										</p>
 
 										<br>
 										
-										<p style="text-align: left;"> Then starting from Slope layer, we computed NLZ (No Landslides Zone), the zones in which a landslide theoretically can't occur. We obtained it using in the Raster calculator the following formula: <code>"slope@1" &lt; 20 OR "slope@1" &gt; 70</code> and sieving it for remove too small areas, not significant for our purposes.<br>Moreover we used data from zone in which landslides have already occurred (from IFFI catalogue), both for removing that zones from computed NLZ as untrue information (since a landslide in that area has already happened) and also as example of area in which a landslide can occur. We did so in order to make our dataset more accurate for the next steps.</p>
+										<p style="text-align: left;"> Then starting from Slope layer, we computed <b>NLZ (No Landslides Zone)</b>, the zones in which a landslide theoretically can't occur. We obtained it using in the <b>Raster calculator</b> the following formula: <code>"slope@1" &lt; 20 OR "slope@1" &gt; 70</code> and sieving it for remove too small areas, not significant for our purposes.<br>Moreover we used data from zone in which landslides have already occurred (from <b>IFFI catalogue</b>), both for removing that zones from computed NLZ as <b>untrue information</b> (since a landslide in that area has already happened) and also as example of area in which a landslide can occur. We did so in order to make our dataset more <b>accurate</b> for the next steps.</p>
 
 										<br>
 
@@ -197,7 +197,7 @@
 								<header class="major">
 									<h2>Susceptibility Map</h2>
 								</header>
-								<p>To properly train and evaluate the model we generated a total of 1,000 points using the <code>Random Points in layer bound</code> tool, which randomly creates points within polygons. We assined the value 1 to the NLZ points and 2 to the LSZ points and we set a distance of 10 meters from one another. We decided to use a training-testing ratio of 70% for training and 30% for testing, maintaining a balanced 1:1 ratio in line with the 'Hazard' value. 
+								<p>To properly <b>train</b> and <b>evaluate</b> the model we generated a total of <b>1,000 points</b> using the <code>Random Points in layer bound</code> tool, which randomly creates points within polygons. We assined the value <b>1</b> to the <b>NLZ</b> points and <b>2</b> to the <b>LSZ</b> points and we set a distance of <b>10 meters</b> from one another. We decided to use a <b>training-testing ratio</b> of <b>70%</b> for training and <b>30%</b> for testing, maintaining a balanced 1:1 ratio in line with the 'Hazard' value. 
 									Then we performed a <code>Merge</code> operation on the training and testing layer, unifying them into one single layer.</p>
 								
 								<div class="table-wrapper">
@@ -243,7 +243,7 @@
 								<br>
 								<br>
 
-								<p>To generate the susceptibility map we used the classification tool from the <code>Dzetsaka Plugin</code>. We obtained a binary classification layer and its corresponding confidence layer. </p>
+								<p>To generate the <b>susceptibility map</b> we used the classification tool from the <code>Dzetsaka Plugin</code>. We obtained a <b>binary classification layer</b> and its corresponding confidence layer. </p>
 
 								<div class="box alt">
 									<div class="row gtr-uniform">
@@ -252,7 +252,7 @@
 									</div>
 								</div>
 
-								 <p>Then to create a unique layer we used the raster calculator, appling this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code> <br> obtaining this layer:
+								 <p>Then to create a unique layer we used the <b>Raster calculator</b>, appling this formula <br><code>("classification@1" = 2) * "confidence@1" + ("classification@1" = 1) * (100 - "confidence@1")</code> <br> obtaining this layer:
 								 </p>
 
 								 <p><span class="image"><a href="../images/susceptibility_map.png"><img src="/gis2024-group4/assets/susceptibility_map.416ffbac.png" style="display: block;max-width: 100%;"/></a></span>
@@ -265,7 +265,7 @@
 								<header class="major">
 									<h2>Validation</h2>
 								</header>
-								<p>Sequentially, to validate the output obtained previously, we used the <code>Accuracy Assessment and Sampling</code>, provided to us. We imported it into the processing scripts tools and ran it on the Susceptibility maps and testing points. <br> This is what we obtained: </p>
+								<p>Sequentially, to <b>validate</b> the output obtained previously, we used the <code>Accuracy Assessment and Sampling</code> script, provided to us. We imported it into the <b>processing scripts tool</b> and ran it on the Susceptibility maps and testing points. <br> This is what we obtained: </p>
 
 								<h3>Confusion Matrix</h3>
 
@@ -305,70 +305,74 @@
 											<li><b>Overall accuracy (OA)</b> represents the overall percentage of pixels that are correctly classified relative to the total number of pixels.</li>
 											<code>OA = (TP + TN) / (TP + TN + FP + FN)</code>
 										</ul>
-										The value of <b>Overall Accuracy</b> obtained is <b>0.773</b>, being higher then 0.7, highlights a sufficiently high level of reliability in the results of the susceptibility map.
+										The value of <b>Overall Accuracy</b> obtained is <b>0.773</b>, being higher then 0.7, highlights a sufficiently high level of <b>reliability</b> in the results of the susceptibility map.
 									</p>
 							</section>
 
 						<!-- Tools Section -->
 							<section id="exp" class="main special">
 								<header class="major">
-									<h2>Exposure Assessment for population</h2>
+									<h2>Exposure Assessment</h2>
 								</header>
-								
-								<p>
-									<span class="image right"><a href="../images/population.png"><img src="/gis2024-group4/assets/population.e29f82cb.png" style="display: block;"/></a></span>
-									To conduct the exposure assessment, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the preceding step.</p>
-									<br>
-									<br>
-									<br>
-									<br>
-									<br>
-									<p>Employing the Raster calculator, we categorized the susceptibility raster map into four distinct classes. This is the formula we used:
+								<p>Employing the <b>Raster calculator</b>, we categorized the susceptibility raster map into <b>four</b> distinct <b>classes</b>. This is the formula we used:
 									<br>
 									<code>("susceptibility_map@1" &lt; 25) * 1 + &nbsp; <br> (("susceptibility_map@1" &ge; 25)AND("susceptibility_map@1" &lt; 50)) * 2 + &nbsp; <br> (("susceptibility_map@1" &ge; 50) AND ("susceptibility_map@1" &lt; 75)) * 3 + &nbsp; <br> ("susceptibility_map@1" &ge; 75) * 4</code>
 									<br>
 									<ul style="text-align: left;">
-										<li>Low: values in the range [0, 25) %</li>
-										<li>Moderate: values in the range [25, 50) %</li>
-										<li>High: values in the range [50, 75) %</li>
-										<li>Very high: values in the range [75, 100) %</li>
+										<li><b>Low</b>: values in the range [0, 25) %</li>
+										<li><b>Moderate</b>: values in the range [25, 50) %</li>
+										<li><b>High</b>: values in the range [50, 75) %</li>
+										<li><b>Very high</b>: values in the range [75, 100) %</li>
 									</ul>
-									To determine population exposure, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population raster dataset, which is approximately 81.67 meters.
-									By utilizing <code>Raster layer zonal statistics</code>, we computed the population count and lastly we used Excel to visualize the output through a pie chart, illustrating the proportion of population within each susceptibility class before defined.
 								</p>
-
-									<div class="box alt">
-										<div class="row gtr-uniform">
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map.png"><img src="/gis2024-group4/assets/susceptibility_map.416ffbac.png" alt="" /></a></span><p>Original</p></div>
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass.png"><img src="/gis2024-group4/assets/susceptibility_map_reclass.f9f343e2.png" alt="" /></a></span><p>Reclassified</p></div>
-											<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass_resamp.png"><img src="/gis2024-group4/assets/susceptibility_map_reclass_resamp.fb7903d6.png" alt="" /></a></span><p>Reclassified and resampled</p></div>
-										</div>
+								<p>To determine <b>exposures</b>, a resampling procedure was conducted on the susceptibility map layer, ensuring its resolution conformed with that of the clipped population/buildings raster datasets, which is approximately 81.67 meters.</p>
+								<div class="box alt">
+									<div class="row gtr-uniform">
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map.png"><img src="/gis2024-group4/assets/susceptibility_map.416ffbac.png" alt="" /></a></span><p>Original</p></div>
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass.png"><img src="/gis2024-group4/assets/susceptibility_map_reclass.f9f343e2.png" alt="" /></a></span><p>Reclassified</p></div>
+										<div class="col-4"><span class="image fit"><a href="../images/susceptibility_map_reclass_resamp.png"><img src="/gis2024-group4/assets/susceptibility_map_reclass_resamp.fb7903d6.png" alt="" /></a></span><p>Reclassified and resampled</p></div>
 									</div>
-
-									<p>The exposure assessment constitutes a crucial aspect in our project, indeed it aims at identifying and evaluating elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, buildings and infrastructure, facilitating the development of effective strategies for risk mitigation. In this exposure assessment, in particular, we are going to focus on the percentage of people that may be affected by potential landslide. By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify high-risk zones and assess the potential repercussions of landslides on human activties.</p>
-								
-								<header class="major">
-									<h2>Exposure Assessment for buildings</h2>
-								</header>
-
-								<p>
+								</div>
+								<h3 style="text-align: left;"><b>Population</b></h3>
+								<br>
+								<p style="text-align: right;">
 									<span class="image right"><a href="../images/population.png"><img src="/gis2024-group4/assets/population.e29f82cb.png" style="display: block;"/></a></span>
-									TODO come abbiamo ottenuto raster buildings</p>
-									<br>
+									<br><br>To conduct the <b>population exposure assessment</b>, we acquired, clipped and reprojected the population raster dataset to match the coordinate reference system (CRS) of the case-study area and the susceptibility map obtained in the previous step.
 									<br>
 									<br>
 									<br>
 									<br>
 									<br>
 								</p>
-
+								<h3 style="text-align: left;"><b>Buildings</b></h3>
+								<br>
+								<p style="text-align: left;">
+									<span class="image left"><a href="../images/OSM_buildings.png"><img src="../images/OSM_buildings.png" style="display: block;"/></a></span>
+									<br><br>In order to obtain the <b>rasterized density map</b> of the buildings in our case study area, using <b>Overpass Turbo</b>, we extracted all the buildings in the area using the external bound of our area as polygon in which execute the query, converted from GeoJSON to GeoPackage and reprojected to UTM 32N (Overpass Turbo gives the results in WGS84) using as before <code>Warp (Reproject)</code>. Then to have countable feutures, we can extract one point for each polygon in its barycenter using <code>Centroids</code>.
+									
+									
+								</p>
+								<br>
+								<p style="text-align: right;">
+									<span class="image right"><a href="../images/buildings.png"><img src="../images/buildings.png" style="display: block;"/></a></span>
+									<br><br>Creating a <b>vector grid</b> (function <code>Create grid</code>) with the same pixel size of the resampled susceptibility map and with the same extent give us the possibility to use the QGIS function <code>Count points in polygon</code>. Now each cell of the grid has the information of how many buildings are within, and rasterazing this grid we get the raster layer of buildings density shown at side.
+								</p>
+								<br>
+								<br>
+								<hr>
+								<p>By utilizing <code>Raster layer zonal statistics</code>, we computed the count both for population and buildings, and lastly we used <b>Excel</b> to visualize the output through <b>pie charts</b>, illustrating the proportion of population and buildings within each susceptibility class previously defined.</p>
+								<hr>
+								<p>The <b>exposure assessment</b> constitutes a crucial aspect in our project, indeed it aims at <b>identifying</b> and <b>evaluating</b> elements at risk within landslide susceptible zone. The principal aim of an exposure assessment is to quantify and comprehend the vulnerability of elements like the presence of individuals, buildings and infrastructure, facilitating the development of effective strategies for <b>risk mitigation</b>. In this exposure assessment, in particular, we are going to focus on the percentage of people and buildings that may be affected by potential landslide. By examinating the spatial correlation between areas prone to landslides and exposed elements, we can indentify <b>high-risk zones</b> and assess the potential repercussions of landslides on human activities.</p>
+						
 							</section>
 
 						<!-- Results Section -->
 							<section id="results" class="main special">
 								<header class="major">
-									<h2>Results for population</h2>
+									<h2>Results</h2>
 								</header>
+								<h3 style="text-align: left;"><b>Population</b></h3>
+								<br>
 								<div class="table-wrapper">
 									<table class="alt">
 										<tbody>
@@ -405,22 +409,21 @@
 
 								<p style="text-align: left;"> 
 									<span class="image left">
-										<a href="../images/pie_plot.png"><img src="/gis2024-group4/assets/pie_plot.164d44d9.png" style="display: block;max-width: 100%;"/></a>
+										<a href="../images/pie_plot_population.png"><img src="../images/pie_plot_population.png" style="display: block;max-width: 100%;"/></a>
 									</span>
 									From the pie chart is evident that, even though a significant portion of the population resides in areas less prone to landslides, there is a significant percentage population at high risk and at risk of landslides. 
-									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to ISPRA is 2.2% while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is around 6%.
+									Comparing the data obtained from our analysis with the percentage of population at risk of being affected by landslides in Italy we can see a staggering discrepancy, since the national percentage of population being at risk or at high risk according to <b>ISPRA</b> is <b>2.2%</b> while the percentage of population resulting from our analysis at risk or high risk in the lake Endine surrounding area is around <b>6%</b>.
 								</p>
 
-								<header class="major">
-									<h2>Results for buildings</h2>
-								</header>
+								<h3 style="text-align: left;"><b>Buildings</b></h3>
+								<br>
 								<div class="table-wrapper">
 									<table class="alt">
 										<tbody>
 											<tr>
 												<td><b>Zone</b></td>
 												<td><b>Sum (buildings)</b></td>
-												<td><b>buildings percentage (%)</b></td>
+												<td><b>Buildings percentage (%)</b></td>
 											</tr>
 											<tr>
 												<td>&lt; 25%</td>
@@ -450,16 +453,10 @@
 
 								<p style="text-align: left;"> 
 									<span class="image left">
-										<a href="../images/pie_plot.png"><img src="/gis2024-group4/assets/pie_plot.164d44d9.png" style="display: block;max-width: 100%;"/></a>
+										<a href="../images/pie_plot_buildings.png"><img src="../images/pie_plot_buildings.png" style="display: block;max-width: 100%;"/></a>
 									</span>
-								TODO cambiare immagine e mettere spiegazione
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
-								<br>
+									Also from this pie chart we can state that there is a significant percentage of buildings in an area at high risk or at risk of landslides. 
+									Moreover, comparing the data obtained from our analysis with the percentage of buildings at risk of being affected by landslides in Italy we can observe an even more prominent divergence. Indeed, the national percentage of buildings being at risk or at high risk according to <b>ISPRA</b> is <b>3,9%</b> while the percentage resulting from our analysis in the Lake Endine's zone is more then four times the national one, being approximatly <b>12%</b>.
 								</p>
 							</section>
 
@@ -468,11 +465,11 @@
 							<header class="major">
 								<h2>Challenges Faced</h2>
 							</header>
-							<p>These are some of the challenges that we encountered and how we overcame them: </p>
+							<p>These are some of the <b>challenges</b> that we encountered and how we <b>overcame</b> them: </p>
 							<ul class="alt">
-								<li>We had to manually clip the NLZ layer into different sections in order to obtain better distributed points.</li>
-								<li>We used the GDAL tool (Aspect) instead of the SAGA (Slope,aspect,curvature), because otherwise it would indicate a NULL value in flat areas instead of zero, creating gaps within the layer and causing issues for subsequent operations.</li>
-								<li>We launched multiple times the tool to generate random points in order to produce points consistent with our study area.</li>	
+								<li>We had to <b>manually clip</b> the NLZ layer into different sections in order to obtain better distributed points.</li>
+								<li>We used the <b>GDAL</b> tool (Aspect) instead of the SAGA (Slope,aspect,curvature), because otherwise it would indicate a <b>NULL value</b> in flat areas instead of zero, creating gaps within the layer and causing issues for subsequent operations.</li>
+								<li>We launched <b>multiple times</b> the tool to generate random points in order to produce points consistent with our study area.</li>	
 							</ul>
 
 						</section>
@@ -481,8 +478,8 @@
 						<section id="webgis" class="main special">
 							<header class="major">
 								<h2>WebGIS</h2>
-								<p>In the final phase of our project, we have developed a WebGIS platform that facilitates the visualization of the analyzed maps and of the landslide susceptibility map. This tool is designed to be user-friendly, allowing individuals to easily interact with the map. Thanks to the intuitive interface, users are able to navigate through our collection of layers. They can effortlessly zoom in and out and switch between various layers making it possible to better comprehend the landslide susceptibility assessment.
-									Moreover, our WebGIS platform is thoughtfully equipped with a set of base maps that serve as a backdrop, enhancing the overall user experience. The purpose of our WebGIS is to encourage users to explore and understand the data deeply, leading to a greater awareness of the nuances of landslide susceptibility and its potential impact on the environment. Additionally, our WebGIS is designed to be accessible to everyone, ensuring that users can gain valuable insights without the need for specialized technical knowledge.</p>
+								<p>In the final phase of our project, we have developed a <b>WebGIS</b> platform that facilitates the visualization of the analyzed maps and the landslide susceptibility map. This <b>tool</b> is designed to be <b>user-friendly</b>, allowing individuals to easily interact with the map. Thanks to the intuitive interface, users are able to <b>navigate</b> through our collection of layers. They can effortlessly <b>zoom in and out</b> and switch between various layers making it possible to better comprehend the landslide susceptibility assessment.
+									Moreover, our WebGIS platform is thoughtfully equipped with a set of <b>base maps</b> that serve as a backdrop, enhancing the overall user experience. The purpose of our WebGIS is to encourage users to explore and understand the data deeply, leading to a greater awareness of the nuances of landslide susceptibility and its potential impact on the environment. Additionally, our WebGIS is designed to be <b>accessible</b> to everyone, ensuring that users can gain valuable insights without the need for specialized technical knowledge.</p>
 							</header>
 							<footer class="major">
 								<ul class="actions special">
